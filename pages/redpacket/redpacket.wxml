@@ -1,0 +1,136 @@
+<wxs module="filter" src="../../filter/dateFr.wxs" />
+<view class="container">
+  <view class="tab">
+    <van-tabs type="card" color="#F2AB0B" sticky>
+      <van-tab title="未使用" title-style="tab-title">
+        <!-- 主内容 -->
+        <view class="tab-container">
+          <block wx:if="{{isNotUsed == false}}">
+            <van-empty description="暂无数据" />
+          </block>
+          <block wx:else>
+            <block wx:for="{{redpacketList}}" wx:key="index">
+              <block wx:if="{{item.status == 1}}">
+                <view class="tab-panel">
+                  <van-panel title="{{item.storeName}}" status="{{filter.doSubtringTime(item.winAt)}}获得">
+                    <view class="tab-content">{{ item.awardDisplay}}
+                      <view class="tab-icon" bindtap="doIconShow" data-index="{{index}}">
+                        <image src="../../image/icon-2.png" />
+                      </view>
+                    </view>
+                    <view class="tab-footer">
+                      <view class="tab-footer-text">
+                        有效期截止 {{filter.doSubtringTime(item.writeoffEndAt)}}
+                      </view>
+                      <van-button plain hairline color="#F2AB0B" size="small" bindtap="showPupop"
+                        data-index="{{index}}">
+                        立即使用</van-button>
+                    </view>
+                  </van-panel>
+                </view>
+              </block>
+            </block>
+          </block>
+        </view>
+      </van-tab>
+      <van-tab title="已使用" title-style="tab-title">
+        <!-- 主内容 -->
+        <view class="tab-container">
+          <block wx:if="{{isUsed == false}}">
+            <van-empty description="暂无数据" />
+          </block>
+          <block wx:else>
+            <block wx:for="{{redpacketList}}" wx:key="index">
+              <block wx:if="{{item.status == 2}}">
+                <view class="tab-panel">
+                  <van-panel title="{{item.storeName}}" status="{{filter.doSubtringTime(item.winAt)}}获得">
+                    <view class="tab-content active"> {{ item.awardDisplay}}
+                      <view class="tab-icon" bindtap="doIconShow" data-index="{{index}}">
+                        <image src="../../image/icon-2.png" />
+                      </view>
+                    </view>
+                    <view class="tab-footer">
+                      <view class="tab-footer-text">
+                        有效期截止 {{filter.doSubtringTime(item.writeoffEndAt)}}
+                        <span>已使用</span>
+                      </view>
+                    </view>
+                  </van-panel>
+                </view>
+              </block>
+            </block>
+          </block>
+        </view>
+      </van-tab>
+      <van-tab title="已过期" title-style="tab-title">
+        <!-- 主内容 -->
+        <view class="tab-container">
+          <block wx:if="{{isExpired == false}}">
+            <van-empty description="暂无数据" />
+          </block>
+          <block wx:else>
+            <block wx:for="{{redpacketList}}" wx:key="index">
+              <block wx:if="{{item.status == 3}}" data-emptyshow3="{{item.status}}">
+                <view class="tab-panel">
+                  <van-panel title="{{item.storeName}}" status="{{filter.doSubtringTime(item.winAt)}}获得">
+                    <view class="tab-content active line-through"> {{ item.awardDisplay}}
+                      <view class="tab-icon" bindtap="doIconShow" data-index="{{index}}">
+                        <image src="../../image/icon-2.png" />
+                      </view>
+                    </view>
+                    <view class="tab-footer">
+                      <view class="tab-footer-text">
+                        有效期截止{{filter.doSubtringTime(item.writeoffEndAt)}}
+                        <span>已过期</span>
+                      </view>
+                    </view>
+                  </van-panel>
+                </view>
+              </block>
+            </block>
+          </block>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>
+<!-- 立即使用弹框 -->
+<pupop id="pupop" title="喵市积分红包" btn_ok="确认" bind:success="_btnok" bind:error="_error">
+  <view class="pupop-item">
+    <view class="doller">{{awardDisplay}}</view>
+    <view class="tip-text">
+      <text>购物时{{awardDescription}}</text>
+      <text>兑奖店铺：{{storeName}}</text>
+    </view>
+    <view class="code">
+      <!-- 条形码 -->
+      <canvas canvas-id="barcode"></canvas>
+    </view>
+    <view class="number">{{awardBarNo}}</view>
+  </view>
+</pupop>
+<!-- 小问号弹窗 -->
+<view class="icon-popup bg" hidden="{{iconShow}}" catchtouchmove="true">
+  <view class="icon-container">
+    <view class="pupop-content">
+      <view class="header">
+        <view class="title">喵市王国</view>
+        <view class="hr"></view>
+        <view class="close" bindtap="doIconHidden">
+          <image src="../../image/close.png"></image>
+        </view>
+      </view>
+      <view class="section">
+        <text>
+          购物时{{awardDescription}}
+          兑奖店铺：{{storeName}}
+        </text>
+      </view>
+      <view class="footer">
+        <view class="btn" bindtap="doIconHidden">
+          <van-button block color="#F2AB0B">确定</van-button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

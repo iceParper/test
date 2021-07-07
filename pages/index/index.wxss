@@ -1,0 +1,458 @@
+/* @import "../../wxParse/wxParse.wxss"; */
+
+/* .container{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+} */
+
+
+/* 背景图片 */
+.page-bg {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  z-index: -10;
+}
+
+.page-bg .page-image {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 转盘 */
+.roulette {
+  /* width: 50%;*/
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roulette-outer {
+  width: 680rpx;
+  height: 680rpx;
+  margin-top: 24rpx;
+  background: rgba(138, 138, 138, .3);
+  position: relative;
+}
+
+.roulette-outer>image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 转盘指针样式 */
+.roulette-outer .round-pointer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* transform: translate(-50%, -50%); */
+  z-index: 10;
+}
+
+.roulette-outer .round-pointer>image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 活动说明 */
+.roulette-outer .text {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+  color: rgba(255, 255, 255, 0.507);
+  font-size: 24rpx;
+  padding: 15rpx 0 0 15rpx;
+  z-index: 20;
+}
+
+.roulette-outer .text>span {
+  margin-left: 8rpx;
+}
+
+.roulette-outer .text>.image {
+  width: 26rpx;
+  /* height: 28rpx; */
+  display: flex;
+  align-items: center;
+}
+
+.roulette-outer .text>.image>image {
+  margin-top: 2rpx;
+  width: 100%;
+}
+
+/* 获奖信息样式 */
+.winawardinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.win-content {
+  width: 680rpx;
+  height: 224rpx;
+  background-color: #e0ac5ecc;
+  margin-top: 34rpx;
+  overflow: hidden;
+  padding: 0rpx 24rpx;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.win-content swiper {
+  height: 224rpx;
+}
+.win-content swiper swiper-item{
+  height: 55rpx;
+}
+.win-content .win-item {
+  height: 55rpx;
+  line-height: 55rpx;
+  font-size: 24rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* animation: anis 20s linear infinite; */
+}
+
+/* 文本滚动样式 */
+@keyframes anis {
+  100% {
+    transform: translateY(-400rpx)
+  }
+}
+
+.win-item .image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 5rpx;
+}
+
+.win-item .image>image {
+  width: 100%;
+  height: 100%;
+}
+
+.win-item .phone {
+  width: 150rpx;
+  text-align: center;
+}
+
+.win-item .phone-text {
+  letter-spacing: 4rpx;
+}
+
+.win-item .date-time {
+  width: 110rpx;
+  color: rgba(255, 255, 255, 0.507);
+}
+
+.win-item .chouzhong {
+  width: 54rpx;
+  color: rgba(255, 255, 255, 0.507);
+}
+
+.win-item .tip-text {
+  width: 73rpx;
+  /* color: rgba(255, 255, 255, 0.507); */
+  color: #fff;
+}
+
+.win-item .tip-title {
+  width: 168rpx;
+  font-weight: bold;
+}
+
+/* 猫猫 */
+.cat {
+  width: 100%;
+  /* height: 320rpx; */
+  margin-top: 40rpx;
+  position: relative;
+  display: flex;
+  /* bottom: 7rpx; */
+  /* position: fixed;
+  left: 0;
+  bottom: 0; */
+}
+
+.cat-content {
+  width: 226rpx;
+  height: 326rpx;
+  position: relative;
+}
+
+.cat-content .cat-box {
+  width: 226rpx;
+  /* height: 326rpx; */
+  position: absolute;
+  left: 0;
+  /* bottom: -30rpx; */
+  bottom: -16rpx;
+  z-index: 999;
+}
+
+.cat-content .cat-box>image {
+  width: 100%;
+  height: 100%;
+}
+
+.cat .tip {
+  position: relative;
+}
+
+.cat .tip .tip1 {
+  width: 40rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 103rpx;
+  left: 12rpx;
+}
+
+.cat .tip .tip2 {
+  width: 60rpx;
+  height: 44rpx;
+  position: absolute;
+  top: 65rpx;
+  left: 61rpx;
+}
+
+.cat .tip .tip3 {
+  width: 365rpx;
+  height: 170rpx;
+  position: absolute;
+  top: -15px;
+  left: 132rpx;
+}
+
+/* 猫的话语样式 */
+.cat .tip .tip-text {
+  /* width: 320rpx;
+  height: 134rpx; */
+  width: 365rpx;
+  height: 170rpx;
+  font-size: 26rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 48rpx 40rpx;
+  /* padding: 50rpx 15rpx 20rpx 15rpx; */
+  box-sizing: border-box;
+  color: #F2AB0B;
+  position: absolute;
+  top: -15px;
+  left: 132rpx;
+}
+
+/* 小鱼和按钮 */
+.cat-footer {
+  position: absolute;
+  right: 10rpx;
+  bottom: 24rpx;
+}
+
+.cat-footer .fish {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10rpx;
+  position: relative;
+}
+
+.cat-footer .fish .fishbox {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+}
+
+.cat-footer .fish .fishbox .fishone {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cat-footer .fish image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.cat-footer .fish .fishNum {
+  font-size: 32rpx;
+  color: #F2AB0B;
+  line-height: 60rpx;
+}
+
+.cat-footer .cat-btn .van-button--block {
+  width: 544rpx;
+  height: 72rpx;
+}
+
+/* 活动说明 弹框内容样式  */
+.pupop-item {
+  font-size: 28rpx;
+  color: #101010;
+}
+
+.pupop-item .text {
+  /* margin-left: 20rpx;/ */
+  margin-top: 10rpx;
+  text-indent: 2em;
+}
+
+.pupop-item .tip {
+  margin-top: 30rpx;
+  text-indent: 0;
+}
+
+/* 绑定手机号 */
+.bindingPhone {
+  display: flex;
+  flex-direction: column;
+}
+
+.bindingPhone .shopText {
+  width: 500rpx;
+  height: 224rpx;
+  background: #E0AC5E;
+  color: #fff;
+  border-radius: 4rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bindingPhone .shopText .doller {
+  color: #EE0808;
+  font-size: 72rpx;
+}
+
+.bindingPhone .shopText .doller>text {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.58);
+  margin-left: 10rpx;
+}
+
+.bindingPhone .phoneCode {
+  /* color: #585858; */
+  font-size: 28rpx;
+}
+
+.bindingPhone .phoneCode .phone-item {
+  margin-top: 25rpx;
+}
+
+.bindingPhone .phoneCode .phone-item .phonetext {
+  color: rgba(88, 88, 88, .52);
+  margin: 0 16rpx;
+}
+
+.bindingPhone .phoneCode .phone-item .input>input {
+  border: 1rpx solid rgba(138, 138, 138, .3);
+  padding: 10rpx 15rpx;
+  border-radius: 8rpx;
+  margin: 0 16rpx;
+  margin-top: 8rpx;
+}
+
+.bindingPhone .phoneCode .phone-item .code-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bindingPhone .phoneCode .phone-item .code-input .tipText>button {
+  color: rgb(242, 171, 11);
+  font-size: 28rpx;
+  font-weight: bold;
+  width: 172rpx;
+  height: 68.8rpx;
+  text-align: center;
+  line-height: 68.8rpx;
+  background: #fff;
+  padding: 0;
+}
+
+.bindingPhone .phoneCode .phone-item .code-input .tipText>button::after {
+  border: none;
+}
+
+/* 中奖提示 */
+.prize-box {
+  width: 596rpx;
+  height: 768rpx;
+  position: fixed;
+  top: 24%;
+  background-size: 100% 100%;
+}
+
+/* .prize-box .prizeImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+
+} */
+
+/* .prize-box .prizeImg>image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+} */
+
+.prize-box .prize-btn {
+  position: absolute;
+  left: 0;
+  bottom: 36rpx;
+  width: 100%;
+}
+
+.prize-box .prize-btn .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.prize-box .prize-btn .content>button {
+  margin: 0 4rpx;
+}
+
+.prize-box .prize-btn .content>button:nth-child(1) {
+  color: #F2AB0B;
+  border: 1rpx solid #F2AB0B;
+  opacity: none;
+  margin-left: 30rpx;
+}
+
+.prize-box .prize-btn .content>button:nth-child(1):active {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.prize-box .prize-btn .content>button:nth-child(2) {
+  background: #F2AB0B;
+  color: #fff;
+  border: 1rpx solid #f2ab0b;
+  opacity: none;
+  margin-right: 30rpx;
+}
+
+.prize-box .prize-btn .content>button:nth-child(2):active {
+  background-color: rgba(0, 0, 0, .1);
+}

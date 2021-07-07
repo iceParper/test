@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-button": "@vant/weapp/button/index",
+    "pupop":"/components/pupop/pupop",
+    "van-empty": "@vant/weapp/empty/index"
+  },
+  "navigationBarTitleText": "红包",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

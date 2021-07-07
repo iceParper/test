@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "pupop":"/components/pupop/pupop"
+  },
+  "navigationBarTitleText": "喵市王国幸运购"
+}

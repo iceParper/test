@@ -1,0 +1,10 @@
+//时间过滤器
+var doSubtringTime = function (time) {
+  if (time !== '' && time !== null) {
+    time = time.substring(0, 10).replace('-','年').replace('-', '月') + '日'
+  }
+  return time
+}
+module.exports = {
+  doSubtringTime: doSubtringTime
+}

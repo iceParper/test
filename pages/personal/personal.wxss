@@ -1,0 +1,337 @@
+/* pages/personal/personal.wxss */
+/* @import "../../wxParse/wxParse.wxss"; */
+page {
+  background-color: #F1F1F1;
+}
+
+.user-bg {
+  width: 100%;
+  height: 336rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-box {
+  margin-left: 48rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 头像当做背景并且虚化 */
+.user-icon-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -999;
+  /* 高斯模糊,像素越大越模糊 */
+  filter: blur(15rpx);
+  overflow: hidden;
+  object-fit: cover
+}
+
+.user-icon-bg>image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 用户头像 */
+.user-icon {
+  width: 136rpx;
+  height: 136rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1rpx solid #fff;
+}
+
+.user-icon>image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5rpx solid #fff;
+}
+
+.user-text {
+  font-size: 28rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 16rpx;
+}
+
+.user-name {
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.user-phone {
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+
+.user-phone-number {
+  margin-right: 10rpx;
+}
+
+.userphone {
+  background: #fff;
+  color: #F2AB0B;
+  /* padding: 0 5rpx; */
+  width: 108rpx;
+  height: 36rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #F2AB0B;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  /* margin-top: 12rpx; */
+}
+
+/* 系统服务 */
+.system {
+  margin: 44rpx 24rpx;
+  background: #fff;
+  position: relative;
+  box-shadow: 0rpx 8rpx 10rpx #bcbcbc;
+  border-radius: 15rpx;
+}
+
+.system .title {
+  font-size: 32rpx;
+  padding: 16rpx 36rpx;
+  /* border-bottom: 1rpx solid #f1f1f1; */
+  color: #8A8A8A;
+  font-weight: bold;
+}
+.system .hr{
+  width: 630rpx;
+  height: 1rpx;
+  background: #f1f1f1;
+  margin: 0 auto;
+}
+.system .van-grid-item__content {
+  border-radius: 15rpx;
+}
+
+.system .grid {
+  color: #8A8A8A;
+  font-size: 28rpx;
+}
+
+.system .grid .text {
+  color: #8a8a8a;
+  font-size: 26rpx;
+}
+
+/* 分享喵市样式 */
+.system .system-btn {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+}
+
+.system .system-btn::after {
+  border: 0;
+}
+
+.system .system-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.system .system-content .text {
+  font-size: 26rpx;
+  cursor: text;
+  font-weight: bold;
+}
+
+
+/* 店铺实拍 */
+.shop {
+  margin: 44rpx 24rpx;
+  color: #8A8A8A;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.shop .title {
+  font-size: 32rpx;
+  padding: 16rpx 36rpx;
+  font-weight: bold;
+}
+
+.shop .image {
+  width: 100%;
+  height: 510rpx;
+  overflow: hidden;
+  border-radius: 15rpx;
+}
+
+.shop .image>image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 弹窗内容样式 */
+/* 客服 */
+.pupop-service {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pupop-service .item {
+  /* flex: 1; */
+  display: flex;
+  align-items: center;
+}
+
+.pupop-service .item:nth-child(1) {
+  height: 220rpx;
+}
+
+.pupop-service .item:nth-child(2) {
+  height: 100rpx;
+}
+
+.pupop-service .item:nth-child(3) {
+  height: 80rpx;
+}
+
+.pupop-service .item>view {
+  width: 150rpx;
+  font-size: 28rpx;
+  color: #585858;
+}
+
+.pupop-service .item .address {
+  width: 346rpx;
+  color: #101010;
+  padding-top: 38rpx;
+}
+
+.pupop-service .item>span:nth-child(2) {
+  color: #101010;
+  font-size: 28rpx;
+  margin-right: 24rpx;
+}
+
+.pupop-service .item>span:nth-child(3) {
+  color: #F2AB0B;
+  font-size: 28rpx;
+}
+
+/* 店铺地址 */
+.pupop-address {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.pupop-address .item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #101010;
+  font-size: 28rpx;
+  margin-top: 60rpx;
+}
+
+.pupop-address .item .address-text {
+  line-height: 45rpx;
+}
+
+.pupop-address .item .text {
+  margin-top: 15rpx;
+}
+
+/* 手机号 */
+.pupop-phone {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .pupop-phone .item{
+  flex: 1;
+} */
+.pupop-phone .item:nth-child(2) {
+  margin-top: 86rpx;
+  height: 286rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .pupop-phone .item .item-content{} */
+.pupop-phone .item .item-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pupop-phone .item .item-box>text {
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #8A8A8A 37%;
+}
+
+.pupop-phone .bindphone {
+  display: flex;
+  color: #101010;
+  align-items: center;
+}
+
+.pupop-phone .bindphone>text {
+  margin-left: 15rpx;
+}
+
+.pupop-phone .item .title {
+  color: rgba(88, 88, 88, .5);
+  font-size: 28rpx;
+  margin-right: 12rpx;
+  margin: 8rpx 16rpx;
+}
+
+.pupop-phone .item .code-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pupop-phone .item .code-input>input {
+  width: 300rpx;
+}
+
+.pupop-phone .item .item-input>input {
+  border: 1rpx solid rgba(138, 138, 138, .3);
+  border-radius: 10rpx;
+  padding: 10rpx 0 10rpx 20rpx;
+  margin: 0 16rpx;
+}
+
+
+.pupop-phone .item .item-input>.getCode>button {
+  color: rgb(242, 171, 11);
+  font-size: 28rpx;
+  font-weight: bold;
+  width: 172rpx;
+  height: 68.8rpx;
+  text-align: center;
+  line-height: 68.8rpx;
+  background: #fff;
+  padding: 0;
+}
+
+.pupop-phone .item .item-input>.getCode>button::after {
+  border: none;
+}

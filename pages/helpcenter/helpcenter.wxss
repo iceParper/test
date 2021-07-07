@@ -1,0 +1,6 @@
+/* pages/helpcenter/helpcenter.wxss */
+@import "../../wxParse/wxParse.wxss";
+.content{
+  /* padding: 25rpx; */
+  font-size: 28rpx;
+}

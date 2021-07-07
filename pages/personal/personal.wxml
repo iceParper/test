@@ -1,0 +1,150 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user-bg">
+    <view class="user-box">
+      <view class="user-icon-bg">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="user-icon">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class="user-text">
+        <view class="user-name">
+          <open-data type="userNickName"></open-data>
+        </view>
+        <block wx:if="{{isUserInfo}}">
+          <view class="user-phone">
+            <view class="user-phone-number">{{userPhone}}</view>
+            <view class="userphone" bindtap="showPupop" data-pupop-phone="2">修改手机</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="userphone" bindtap="showPupop" data-bindphone="1">绑定手机</view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 系统服务 -->
+  <view class="system">
+    <view class="title">系统服务</view>
+    <view class="hr"></view>
+    <van-grid border="{{ false }}" clickable custom-class="grid">
+      <van-grid-item icon="service-o" text-class="text" text="联系客服" bindtap="showPupop" use-slot>
+        <button class="system-btn" hover-class='none' data-pupop-id="1">
+          <view class="system-content">
+            <van-icon name="service-o" color="#8a8a8a" size="54rpx" />
+            <text class="text">联系客服</text>
+          </view>
+        </button>
+      </van-grid-item>
+      <van-grid-item icon="question-o" text-class="text" text="帮助中心" bindtap="gohelpcenter" use-slot>
+        <button class="system-btn" hover-class='none'>
+          <view class="system-content">
+            <van-icon name="question-o" color="#8a8a8a" size="54rpx" />
+            <text class="text">帮助中心</text>
+          </view>
+        </button>
+      </van-grid-item>
+      <van-grid-item icon="share-o" text-class="text" text="分享喵市" use-slot>
+        <button class="system-btn" open-type="share" hover-class='none' data-uid="{{userId}}" data-sno="{{storeNo}}">
+          <view class="system-content">
+            <van-icon name="share-o" color="#8a8a8a" size="54rpx" />
+            <text class="text">分享喵市</text>
+          </view>
+        </button>
+      </van-grid-item>
+      <van-grid-item icon="location-o" text-class="text" text="店铺地址" bindtap="showPupop" use-slot>
+        <button class="system-btn" hover-class='none' data-pupop-id="4">
+          <view class="system-content">
+            <van-icon name="location-o" color="#8a8a8a" size="54rpx" />
+            <text class="text">店铺地址</text>
+          </view>
+        </button>
+      </van-grid-item>
+    </van-grid>
+  </view>
+  <!--  店铺实拍 -->
+  <view class="shop">
+    <view class="title">店铺实拍</view>
+    <view class="image">
+      <block wx:for="{{imageList}}" wx:key="*this">
+        <image src="{{item}}" data-src="{{item}}" bindtap="dopreviewImg" lazy-load="true"></image>
+      </block>
+    </view>
+  </view>
+</view>
+<!-- 弹框 -->
+<pupop id="pupop" title="{{pupopTitle}}" btn_ok="{{pupopBtnText}}" bind:success="_success" bind:error="_error">
+  <!-- 客服 -->
+  <block wx:if="{{isClickItem == 1}}">
+    <view class="pupop-service">
+      <view class="item">
+        <view>店铺地址</view>
+        <view class="address">
+          {{description}}
+        </view>
+      </view>
+      <view class="item">
+        <view>客服电话</view>
+        <span>{{phoneNumber}}</span>
+        <span bindtap="docallPhone">拨打</span>
+      </view>
+      <view class="item">
+        <view>客服微信</view>
+        <span>{{wechatNumber}}</span>
+        <span bindtap="docopy">复制</span>
+      </view>
+    </view>
+  </block>
+  <!-- 店铺地址 -->
+  <block wx:elif="{{isClickItem == 4}}">
+    <view class="pupop-address">
+      <view class="item">
+        <view class="item-align">
+          <view class="address-text">
+            <template is="wxParse" data="{{wxParseData:address.nodes}}"></template>
+            <!-- {{address}} -->
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 绑定/更换手机号 -->
+  <block wx:elif="{{isClickItem == 2}}">
+    <view class="pupop-phone">
+      <view class="item bindphone">
+        <view class="item-box" wx:if="{{isNotBindUserPhone}}">
+          <view class="title">已绑定手机号码:</view>
+          <text>{{userPhone}}</text>
+        </view>
+      </view>
+      <view class="item">
+        <veiw class="item-content">
+          <view class="title">手机号码</view>
+          <view class="item-input">
+            <input type="number" cursor-spacing="500rpx" placeholder="请输入手机号码" bindinput="getuserphone"
+              data-model="phone" value="{{userphoneval}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
+          </view>
+        </veiw>
+        <veiw class="item-content">
+          <view class="title">验证码</view>
+          <view class="item-input code-input">
+            <input class="" type="number" cursor-spacing="335rpx" placeholder="请输入验证码" bindinput="gettextcode"
+              data-model="pwd" value="{{textcodeval}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
+            <view class="getCode">
+              <button disabled="{{getCodeDisabled}}" bindtap="getCode">
+                <block wx:if="{{setTextCode != ''}}">
+                  {{setTextCode + 's'}}
+                </block>
+                <block wx:else>
+                  {{getBindTextCode}}
+                </block>
+              </button>
+            </view>
+          </view>
+        </veiw>
+      </view>
+    </view>
+  </block>
+</pupop>

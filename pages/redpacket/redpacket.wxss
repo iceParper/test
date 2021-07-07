@@ -1,0 +1,228 @@
+/* pages/redpacket/redpacket.wxss */
+page {
+  background-color: #F1F1F1;
+}
+
+.tab {
+  padding-top: 24rpx;
+}
+
+/* 
+ * position: sticky; 
+ * 解决ios 机型的下拉固定的问题
+*/
+ .tab .van-tabs__wrap {
+  /* position: fixed;
+  top: 0;
+  padding-top: 25rpx;
+  width: 100%; */
+  background: #F1F1F1;
+}
+ 
+.tab-container {
+  /* margin: 36rpx 24rpx; */
+  margin: 30rpx 24rpx 36rpx 24rpx;
+}
+
+.tab-container .van-cell__title {
+  color: #BCBCBC;
+}
+
+.tab-container .van-cell__value {
+  color: #BCBCBC;
+}
+
+.tab-content {
+  color: #EE0808;
+  font-size: 96rpx;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: conter;
+}
+
+.tab-content .tab-icon {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 10rpx;
+}
+
+.tab-content .tab-icon>image {
+  width: 100%;
+  height: 100%;
+  padding: 18rpx;
+  padding-bottom: 0;
+}
+
+.tab-container .active {
+  color: #BCBCBC;
+}
+
+.tab-container .line-through {
+  text-decoration: line-through;
+}
+
+.tab-container .tab-panel {
+  margin: 30rpx 0;
+  box-shadow: 0rpx 5rpx 10rpx #bcbcbc;
+}
+
+.tab-footer {
+  padding: 0 40rpx 20rpx 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  height: 80rpx;
+}
+
+.tab-footer .tab-footer-text {
+  color: #BCBCBC;
+}
+
+.tab-footer .tab-footer-text span {
+  color: black;
+}
+
+/* 弹框内容样式 */
+.pupop-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pupop-item .doller {
+  color: #EE0808;
+  font-size: 96rpx;
+}
+
+.pupop-item .tip-text {
+  width: 390rpx;
+  color: #bcbcbc;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.pupop-item .code {
+  width: 390rpx;
+  height: 134rpx;
+  margin-top: 44rpx;
+}
+
+/* .pupop-item .code>canvas {
+  width: 390rpx;
+  height: 134rpx;
+} */
+
+.pupop-item .code>image {
+  width: 100%;
+  height: 100%;
+}
+
+.pupop-item .number {
+  color: #101010;
+  font-size: 28rpx;
+  margin-top: 22rpx;
+}
+
+/* 点击小问号的弹窗样式 */
+.icon-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .5);
+  z-index: 999;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50%;
+}
+
+.pupop-content {
+  width: 596rpx;
+  /* height: 768rpx; */
+  background: #fff;
+  position: relative;
+  box-shadow: 0 8rpx 5rpx #bcbcbc;
+  border-radius: 10rpx;
+}
+
+/* 头部 */
+.header {
+  width: 100%;
+  height: 106rpx;
+  border-radius: 10rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .title {
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #8A8A8A;
+}
+
+.header .hr {
+  width: 504rpx;
+  height: 2rpx;
+  background-color: #BBBBBB;
+  margin-top: 18rpx;
+  /* margin-bottom: 40rpx; */
+}
+
+.header .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 0 15rpx 15rpx;
+}
+
+.header .close>image {
+  width: 38rpx;
+  height: 38rpx;
+  padding-right: 8rpx;
+  padding-top: 8rpx;
+}
+
+.section {
+  padding: 0rpx 50rpx;
+  margin-bottom: 30rpx;
+  box-sizing: border-box;
+  text-align: center;
+  /* color: #585858; */
+  font-size: 28rpx;
+  /* width: 496rpx; */
+  /* height: 200rpx; */
+}
+
+/* 尾部 */
+.footer {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36rpx;
+  /* position: absolute;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box; */
+}
+
+.footer .btn {
+  width: 504rpx;
+  font-weight: bold;
+}
+
+/* .footer .btn .van-button {
+  border-radius: 10rpx;
+} */

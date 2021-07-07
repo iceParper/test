@@ -1,0 +1,6 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <view class="content">
+    <template is="wxParse" data="{{wxParseData:remark.nodes}}"></template>
+  </view>
+</view>

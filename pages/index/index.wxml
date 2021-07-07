@@ -1,0 +1,366 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <!-- 页面背景 -->
+  <view class="page-bg">
+    <image class="page-image" src="{{pageBg}}"></image>
+  </view>
+  <!-- 轮盘 -->
+  <view class="roulette">
+    <view class="roulette-outer"
+      style="position:relative;width:{{winHei * (screenHei > 736 ? 0.48 : 0.4)}}rpx;height:{{winHei * (screenHei > 736 ? 0.48 : 0.4)}}rpx;margin:0 auto;padding:24rpx;">
+      <!-- 轮盘图片 -->
+      <!-- style="transform:rotate({{trasn}}deg)" -->
+      <image src="{{rouletteBgImg}}" animation="{{animationData}}"></image>
+      <!-- 转盘指针 -->
+      <view class="round-pointer">
+        <image src="{{roundPointer}}"></image>
+      </view>
+      <!-- 活动说明 -->
+      <view class="text" data-active-id="0" bindtap="showPupop">
+        <view class="image">
+          <image src="../../image/icon-q.png" mode="widthFix"></image>
+        </view>
+        <span>活动说明</span>
+      </view>
+    </view>
+  </view>
+  <!-- 获奖信息 -->
+  <view class="winawardinfo">
+    <view class="win-content">
+      <swiper autoplay="{{true}}" vertical="true" display-multiple-items="4" interval="1500" circular="false">
+        <swiper-item wx:for="{{wininfoArray}}" wx:key="index" catchtouchmove="stopTouchMove">
+          <view class="win-item">
+            <view class="image">
+              <image src="../../image/gift.png"></image>
+            </view>
+            <block wx:if="{{item.phone != null}}">
+              <view class="phone">{{item.phone}}</view>
+            </block>
+            <block wx:else>
+              <view class="phone phone-text">喵市新用户</view>
+            </block>
+            <view class="date-time">{{item.diffDateStr}}</view>
+            <view class="chouzhong">抽中</view>
+            <block wx:if="{{item.awardLevel == 1}}">
+              <view class="tip-text">一等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 2}}">
+              <view class="tip-text">二等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 3}}">
+              <view class="tip-text">三等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 4}}">
+              <view class="tip-text">四等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 5}}">
+              <view class="tip-text">五等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 6}}">
+              <view class="tip-text">六等奖</view>
+            </block>
+            <view class="tip-title">{{item.awardName}}</view>
+          </view>
+        </swiper-item>
+        <swiper-item wx:for="{{wininfoArray}}" wx:key="index" catchtouchmove="stopTouchMove">
+          <view class="win-item">
+            <view class="image">
+              <image src="../../image/gift.png"></image>
+            </view>
+            <block wx:if="{{item.phone != null}}">
+              <view class="phone">{{item.phone}}</view>
+            </block>
+            <block wx:else>
+              <view class="phone phone-text">喵市新用户</view>
+            </block>
+            <view class="date-time">{{item.diffDateStr}}</view>
+            <view class="chouzhong">抽中</view>
+            <block wx:if="{{item.awardLevel == 1}}">
+              <view class="tip-text">一等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 2}}">
+              <view class="tip-text">二等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 3}}">
+              <view class="tip-text">三等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 4}}">
+              <view class="tip-text">四等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 5}}">
+              <view class="tip-text">五等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 6}}">
+              <view class="tip-text">六等奖</view>
+            </block>
+            <view class="tip-title">{{item.awardName}}</view>
+          </view>
+        </swiper-item>
+        <swiper-item wx:for="{{wininfoArray}}" wx:key="index" catchtouchmove="stopTouchMove">
+          <view class="win-item">
+            <view class="image">
+              <image src="../../image/gift.png"></image>
+            </view>
+            <block wx:if="{{item.phone != null}}">
+              <view class="phone">{{item.phone}}</view>
+            </block>
+            <block wx:else>
+              <view class="phone phone-text">喵市新用户</view>
+            </block>
+            <view class="date-time">{{item.diffDateStr}}</view>
+            <view class="chouzhong">抽中</view>
+            <block wx:if="{{item.awardLevel == 1}}">
+              <view class="tip-text">一等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 2}}">
+              <view class="tip-text">二等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 3}}">
+              <view class="tip-text">三等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 4}}">
+              <view class="tip-text">四等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 5}}">
+              <view class="tip-text">五等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 6}}">
+              <view class="tip-text">六等奖</view>
+            </block>
+            <view class="tip-title">{{item.awardName}}</view>
+          </view>
+        </swiper-item>
+        <swiper-item wx:for="{{wininfoArray}}" wx:key="index" catchtouchmove="stopTouchMove">
+          <view class="win-item">
+            <view class="image">
+              <image src="../../image/gift.png"></image>
+            </view>
+            <block wx:if="{{item.phone != null}}">
+              <view class="phone">{{item.phone}}</view>
+            </block>
+            <block wx:else>
+              <view class="phone phone-text">喵市新用户</view>
+            </block>
+            <view class="date-time">{{item.diffDateStr}}</view>
+            <view class="chouzhong">抽中</view>
+            <block wx:if="{{item.awardLevel == 1}}">
+              <view class="tip-text">一等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 2}}">
+              <view class="tip-text">二等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 3}}">
+              <view class="tip-text">三等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 4}}">
+              <view class="tip-text">四等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 5}}">
+              <view class="tip-text">五等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 6}}">
+              <view class="tip-text">六等奖</view>
+            </block>
+            <view class="tip-title">{{item.awardName}}</view>
+          </view>
+        </swiper-item>
+        <swiper-item wx:for="{{wininfoArray}}" wx:key="index" catchtouchmove="stopTouchMove">
+          <view class="win-item">
+            <view class="image">
+              <image src="../../image/gift.png"></image>
+            </view>
+            <block wx:if="{{item.phone != null}}">
+              <view class="phone">{{item.phone}}</view>
+            </block>
+            <block wx:else>
+              <view class="phone phone-text">喵市新用户</view>
+            </block>
+            <view class="date-time">{{item.diffDateStr}}</view>
+            <view class="chouzhong">抽中</view>
+            <block wx:if="{{item.awardLevel == 1}}">
+              <view class="tip-text">一等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 2}}">
+              <view class="tip-text">二等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 3}}">
+              <view class="tip-text">三等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 4}}">
+              <view class="tip-text">四等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 5}}">
+              <view class="tip-text">五等奖</view>
+            </block>
+            <block wx:elif="{{item.awardLevel == 6}}">
+              <view class="tip-text">六等奖</view>
+            </block>
+            <view class="tip-title">{{item.awardName}}</view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <!-- 猫猫 -->
+  <view class="cat">
+    <view class="cat-content">
+      <view class="cat-box">
+        <image src="../../image/cat.png" mode="widthFix"></image>
+      </view>
+    </view>
+    <!--  气泡 -->
+    <view class="tip">
+      <image src="../../image/round-1.png" class="tip1"></image>
+      <image src="../../image/round-2.png" class="tip2"></image>
+      <image src="../../image/round-3.png" class="tip3"></image>
+      <block wx:if="{{ticketNum > 0}}">
+        <block wx:if="{{todayUsedNum < dayLimitNum}}">
+          <view class="tip-text">喵喵，给我小鱼干～～ 我可以帮你抽奖哦！</view>
+        </block>
+        <block wx:else>
+          <view class="tip-text">我吃饱了，明天再来抽奖吧！喵～～</view>
+        </block>
+      </block>
+      <block wx:else>
+        <block wx:if="{{todayUsedNum  < dayLimitNum }}">
+          <block wx:if="{{isClick}}">
+            <view class="tip-text">没有小鱼干了，分享给朋友获得小鱼干来抽奖哦！</view>
+          </block>
+          <block wx:else>
+            <view class="tip-text">分享给朋友，就能得到小鱼干来抽奖哦！</view>
+          </block>
+        </block>
+        <block wx:else>
+          <view class="tip-text">我吃饱了，明天再来抽奖吧！喵～～</view>
+        </block>
+      </block>
+    </view>
+    <!-- 鱼儿 -->
+    <view class="cat-footer">
+      <view class="fish">
+        <!-- <view wx:for="{{fishList}}" wx:for-index="idx" wx:key="idx">
+          <image class="fishIcon" id="{{'fish' + idx}}" src="../../image/fish.png" animation="{{idx == 0 ? ani : ''}}" wx:if="{{idx < 5}}"></image>
+        </view> -->
+
+        <!-- <block wx:if="{{ticketNum <= 4}}">
+          <block  wx:for="{{ticketNum}}" wx:key="index">
+            <image data-fishid="{{ticketNum[index]}}" src="../../image/fish.png" animation="{{ani}}"></image>
+          </block>
+        </block>
+        <block wx:elif="{{ticketNum == 0}}">
+          <image src="../../image/fish.png"></image>
+          <view class="fishNum">x 0</view>
+        </block> -->
+        <!-- <block wx:else> -->
+
+        <block wx:if="{{anifishList < 8 }}">
+          <block wx:for="{{anifishList}}" wx:key="index">
+            <image src="../../image/fish.png" animation="{{index == 0 ? anis : ''}}" />
+          </block>
+        </block>
+        <block wx:else>
+          <block wx:for="{{deadfish}}" wx:key="index">
+            <image class="fishone" src="../../image/fish.png" />
+          </block>
+          <image class="fishbox" src="../../image/fish.png" animation="{{ani}}"></image>
+          <view class="fishNum">+{{anifishList - deadfish}}</view>
+        </block>
+
+        <!-- {{ticketNum}} -->
+        <!-- <block wx:for="{{ceshiNum}}" wx:key="index">
+          <image class="fishone" src="../../image/fish.png" />
+        </block>
+        <view class="fishNum">+{{ticketNum}}</view> -->
+        <!-- </block> -->
+        <!-- 
+        <image src="../../image/fish.png"></image>
+        <image src="../../image/fish.png"></image>
+        <image src="../../image/fish.png"></image>
+        <view class="fishNum">x {{ticketNum}}</view> -->
+
+      </view>
+      <!-- 抽奖按钮 -->
+      <view class="cat-btn">
+        <block wx:if="{{ticketNum > 0}}">
+          <block wx:if="{{todayUsedNum < dayLimitNum}}">
+            <van-button block color="#F2AB0B" disabled="{{isDisabled}}" bind:click="doLuckDraw"> 喂「喵喵」小鱼     立即抽奖
+            </van-button>
+          </block>
+          <block wx:else>
+            <van-button block color="#F2AB0B" disabled="{{isDisabled}}" data-uid="{{userId}}" data-sno="{{storeNo}}"
+              open-type="share">明天再抽奖 
+              分享给朋友  积累小鱼干
+            </van-button>
+          </block>
+        </block>
+        <block wx:else>
+          <van-button block color="#F2AB0B" disabled="{{isDisabled}}" data-uid="{{userId}}" data-sno="{{storeNo}}"
+            open-type="share">分享给朋友 
+            获得一次抽奖机会
+          </van-button>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 弹出层 -->
+<pupop id="pupop" title="{{popuptitle}}" isShowTitle="{{isShowTitle}}" btn_ok="{{popupbtn}}" bind:success="_btnok"
+  bind:error="_error" isflg="{{isflg}}">
+  <!-- 活动说明 -->
+  <block wx:if="{{isflgId == 0}}">
+    <view class="pupop-item">
+      <view class="activetext">
+        <template is="wxParse" data="{{wxParseData:lotteryDescription.nodes}}"></template>
+        <!-- <text>{{lotteryDescription}} </text> -->
+      </view>
+    </view>
+  </block>
+  <!-- 中奖提示 -->
+  <block wx:elif="{{isflgId == 1}}">
+    <view class="prize-box" style="background-image:url({{prizeImg}})">
+      <view solt="btn" class="prize-btn">
+        <view class="content">
+          <button type="primary" plain="true" size="mini" bindtap="doDownloadImage">保存中奖图片</button>
+          <button type="primary" open-type="share" plain="true" size="mini" data-uid="{{userId}}"
+            data-sno="{{storeNo}}">分享给朋友抽奖</button>
+        </view>
+      </view>
+    </view>
+
+  </block>
+  <!-- 绑定手机号 -->
+  <block wx:elif="{{isflgId == 2}}">
+    <view class="bindingPhone">
+      <view class="shopText">
+        <view class="text">您的账户里已经获得</view>
+        <view class="doller">{{awardDisplay}}<text>红包</text></view>
+        <view class="text">请绑定手机号,方便领奖</view>
+      </view>
+      <view class="phoneCode">
+        <view class="phone-item">
+          <view class="phonetext">手机号</view>
+          <view class="input">
+            <input type="number" placeholder="请输入手机号码" bindinput="userphone" cursor-spacing="338rpx" data-model="phone"
+              value="{{userphone}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
+          </view>
+        </view>
+        <view class="phone-item">
+          <view class="phonetext">验证码</view>
+          <view class="input code-input">
+            <input type="number" placeholder="请输入验证码" bindinput="textcode" cursor-spacing="200rpx" data-model="pwd"
+              value="{{textcode}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
+            <view class="tipText"><button disabled="{{getCodeDisabled}}" bindtap="getCode">
+                <block wx:if="{{setTextCode != ''}}">
+                  {{setTextCode + 's'}}
+                </block>
+                <block wx:else>
+                  {{getBindTextCode}}
+                </block>
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</pupop>

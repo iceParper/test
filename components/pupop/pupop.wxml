@@ -1,0 +1,31 @@
+<view class="pupop-container" hidden="{{flag}}" catchtouchmove="true">
+  <view class="container">
+    <view class="pupop-content">
+      <view class="header">
+        <block wx:if="{{isShowTitle === true}}">
+          <view class="title">{{title}}</view>
+          <view class="hr"></view>
+        </block>
+        <block wx:else>
+          <slot></slot>
+        </block>
+        <view class="close" bindtap="_error">
+          <image src="../../image/close.png"></image>
+        </view>
+      </view>
+      <view class="section">
+        <slot></slot>
+      </view>
+      <block wx:if="{{isflg}}">
+        <view class="footer">
+          <view class="btn">
+            <van-button block color="#F2AB0B" bindtap="_btnOk">{{btn_ok}}</van-button>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <slot name="btn"></slot>
+      </block>
+    </view>
+  </view>
+</view>
