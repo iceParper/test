@@ -627,6 +627,8 @@ Page({
   onShareAppMessage: function (e) {
     //this.pupop.hidePupop() //先关闭上一个弹窗
     this.currinl() //将轮盘初始化
+
+
     /*     if (this.data.luckDrawList.needBindPhone == 1 && this.data.luckDrawList.award.awardLevel != 0) { // 1 需要绑定手机号
           console.log('start share');
           this.setData({
@@ -639,8 +641,11 @@ Page({
           this.pupop.showPupop() //打开弹窗
           return
         } */
-    let sno = e.target.dataset.sno
-    let uid = e.target.dataset.uid
+
+
+
+    let sno = this.data.storeNo
+    let uid = this.data.userId
     return {
       title: '分享',
       path: '/pages/index/index?uid=' + uid + '&sno=' + sno,

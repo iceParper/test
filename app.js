@@ -37,17 +37,16 @@ App({
               '_om': wx.getStorageSync('_om')
             },
             success: (result) => {
-
               wx.setStorageSync('indexList', result.data)
               if (result.data.phone != null || result.data.phone != undefined || result.data.phone != '') {
                 wx.setStorageSync('userphone', result.data.phone) // 存用户手机号码
               }
-              wx.setStorageSync('token', result.data.token) //用户令牌,有效期2小时
-              wx.setStorageSync('userId', result.data.userId) //用户唯一标识符
               if (this.Callback) {
                 this.Callback(result.data.token, result.data.userId)
               }
               wx.setStorageSync('storeNo', result.data.lotteryInfo.storeNo) //店铺编号
+              wx.setStorageSync('token', result.data.token) //用户令牌,有效期2小时
+              wx.setStorageSync('userId', result.data.userId) //用户唯一标识符
               this.globalData.indexjs.dogetUserLogin() //执行index.js的登录
             },
             fail: (err) => {

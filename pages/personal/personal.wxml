@@ -47,7 +47,7 @@
         </button>
       </van-grid-item>
       <van-grid-item icon="share-o" text-class="text" text="分享喵市" use-slot>
-        <button class="system-btn" open-type="share" hover-class='none' data-uid="{{userId}}" data-sno="{{storeNo}}">
+        <button class="system-btn" open-type="share" hover-class='none'>
           <view class="system-content">
             <van-icon name="share-o" color="#8a8a8a" size="54rpx" />
             <text class="text">分享喵市</text>
@@ -123,6 +123,7 @@
         <veiw class="item-content">
           <view class="title">手机号码</view>
           <view class="item-input">
+            <view class="space"></view>
             <input type="number" cursor-spacing="500rpx" placeholder="请输入手机号码" bindinput="getuserphone"
               data-model="phone" value="{{userphoneval}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
           </view>
@@ -130,6 +131,7 @@
         <veiw class="item-content">
           <view class="title">验证码</view>
           <view class="item-input code-input">
+            <view class="space"></view>
             <input class="" type="number" cursor-spacing="335rpx" placeholder="请输入验证码" bindinput="gettextcode"
               data-model="pwd" value="{{textcodeval}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
             <view class="getCode">

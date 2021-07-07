@@ -303,10 +303,8 @@ Page({
 
   /* 分享小程序 */
   onShareAppMessage: function (e) {
-    console.log(e);
-    let sno = e.target.dataset.sno
-    let uid = e.target.dataset.uid
-    // if(sno == null)
+    let sno = this.data.storeNo
+    let uid = this.data.userId
     return {
       title: '分享',
       path: '/pages/index/index?uid=' + uid + '&sno=' + sno,

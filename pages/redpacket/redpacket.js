@@ -16,6 +16,8 @@ Page({
     isNotUsed: false, //是否未使用 -- false默认显示 true为隐藏
     isUsed: false, //是否已使用
     isExpired: false, //是否已过期
+    storeNo: null, //店铺号
+    userId: null, //用户id
   },
 
 
@@ -26,6 +28,12 @@ Page({
     wx.showLoading({
       title: '请稍等...',
     })
+    let sNo = wx.getStorageSync('storeNo')
+    let uid = wx.getStorageSync('userId')
+    this.setData({
+      storeNo: sNo, //店铺号
+      userId: uid, //用户id
+    })
     setTimeout(() => {
       wx.hideLoading()
       //隐藏导航条加载动画
@@ -33,16 +41,7 @@ Page({
       //停止下拉刷新
       wx.stopPullDownRefresh()
     }, 1000);
-
-    /*     wx.getSystemInfo({
-          success: (result) => {
-            // console.log(result.system)
-            if(result.system.indexOf('iOS') != -1){
-              
-            }
-          },
-        }) */
-
+    
   },
   /**
    * 生命周期函数--监听页面显示
@@ -195,7 +194,25 @@ Page({
   /**
    * 用户点击右上角分享
    */
+  /* 分享小程序 */
   onShareAppMessage: function () {
-
-  }
+    let sno = this.data.storeNo
+    let uid = this.data.userId
+    return {
+      title: '分享',
+      path: '/pages/index/index?uid=' + uid + '&sno=' + sno,
+      success: function (res) {
+        console.log(res);
+        // 转发成功
+        wx.showToast({
+          title: "分享成功",
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: function (res) {
+        // 分享失败
+      },
+    }
+  },
 })
