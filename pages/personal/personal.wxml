@@ -103,8 +103,8 @@
       <view class="item">
         <view class="item-align">
           <view class="address-text">
-            <template is="wxParse" data="{{wxParseData:address.nodes}}"></template>
-            <!-- {{address}} -->
+            <!-- <template is="wxParse" data="{{wxParseData:address.nodes}}"></template> -->
+            <rich-text nodes="{{address}}"></rich-text>
           </view>
         </view>
       </view>

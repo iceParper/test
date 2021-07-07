@@ -77,12 +77,12 @@ Page({
     getStoreDetail({ //获取店铺信息
       storeNo: sNo, //店铺编号
     }).then(res => {
-      WxParse.wxParse('address', 'html', res.data.result.address, this, 5); //解析
+      // WxParse.wxParse('address', 'html', res.data.result.address, this, 5); //解析
       this.setData({
         phoneNumber: res.data.result.customerServicePhone, //客服电话
         wechatNumber: res.data.result.customerServiceVx, //客服微信
         description: res.data.result.description, //客服中的地址
-        // address: res.data.result.address, //店铺地址
+        address: res.data.result.address, //店铺地址
         storeNo: sNo, //店铺编号
         userId: uid, //用户id
         imageList: this.doHandlePicUrl(res.data.result.picUrl), //实拍图片

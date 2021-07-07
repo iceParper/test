@@ -702,7 +702,7 @@ Page({
 
   /* 获取最新奖券 */
   dogetTiketNum: function () {
-    let a = setTimeout(() => {
+    setTimeout(() => {
       // 获取分享进来后每次的奖券数目
       // && this.data.storeNo != null
       if (this.data.userId != null) {
