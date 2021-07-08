@@ -262,7 +262,7 @@
           <block wx:for="{{deadfish}}" wx:key="index">
             <image class="fishone" src="../../image/fish.png" />
           </block>
-          <image class="fishbox" src="../../image/fish.png" animation="{{ani}}"></image>
+          <image class="fishbox" src="../../image/fish.png" animation="{{ani}}" ></image>
           <view class="fishNum">+{{anifishList - deadfish}}</view>
         </block>
 
@@ -287,13 +287,15 @@
             </van-button>
           </block>
           <block wx:else>
-            <van-button block color="#F2AB0B" disabled="{{isDisabled}}" open-type="share">明天再抽奖 
+            <van-button block color="#F2AB0B" disabled="{{isDisabled}}" 
+              open-type="share">明天再抽奖 
               分享给朋友  积累小鱼干
             </van-button>
           </block>
         </block>
         <block wx:else>
-          <van-button block color="#F2AB0B" disabled="{{isDisabled}}" open-type="share">分享给朋友 
+          <van-button block color="#F2AB0B" disabled="{{isDisabled}}" 
+            open-type="share">分享给朋友 
             获得一次抽奖机会
           </van-button>
         </block>
@@ -324,7 +326,6 @@
         </view>
       </view>
     </view>
-
   </block>
   <!-- 绑定手机号 -->
   <block wx:elif="{{isflgId == 2}}">
@@ -339,16 +340,16 @@
           <view class="phonetext">手机号</view>
           <view class="input">
             <view class="space"></view>
-            <input type="number" placeholder="请输入手机号码" bindinput="userphone" maxlength="0" cursor-spacing="338rpx"
-              data-model="phone" value="{{userphone}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
+            <input type="number" placeholder="请输入手机号码" bindinput="userphone" cursor-spacing="338rpx" data-model="phone"
+              value="{{userphone}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
           </view>
         </view>
         <view class="phone-item">
           <view class="phonetext">验证码</view>
           <view class="input code-input">
-            <view class="space"></view>
-            <input type="number" placeholder="请输入验证码" bindinput="textcode" maxlength="0" cursor-spacing="200rpx"
-              data-model="pwd" value="{{textcode}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
+          <view class="space"></view>
+            <input type="number" placeholder="请输入验证码" bindinput="textcode" cursor-spacing="200rpx" data-model="pwd"
+              value="{{textcode}}" placeholder-style="color:rgba(138, 138, 138, .3);" />
             <view class="tipText"><button disabled="{{getCodeDisabled}}" bindtap="getCode">
                 <block wx:if="{{setTextCode != ''}}">
                   {{setTextCode + 's'}}

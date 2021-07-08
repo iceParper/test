@@ -97,6 +97,16 @@ Page({
     })
   },
   onShow: function () {
+    /* 
+        this.setData({
+          screenHei: wx.getSystemInfoSync().screenHeight,
+          winHei: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight
+        })
+
+        if (app.globalData.needLoading) {
+          this.dogetUserLogin()
+        }
+     */
     // 从个人页面绑定回来修改手机状态
     let userphone = wx.getStorageSync('userphone')
     if (userphone != '') {
@@ -255,6 +265,10 @@ Page({
   _error: function () {
     this.pupop.hidePupop()
     this.currinl() //将轮盘初始化
+    this.setData({
+      userphone: '',
+      textcode: ''
+    })
   },
 
   /* 点击抽奖 */
@@ -262,8 +276,8 @@ Page({
     this.setData({
       isDisabled: true, //正在抽奖
     })
-    console.log(this.data.oldAward);
-    console.log(this.data.needBindPhone)
+    // console.log(this.data.oldAward);
+    // console.log(this.data.needBindPhone)
     if (this.data.needBindPhone == 1 && this.data.oldAward != {}) { //点击抽奖时的弹窗
       this.setData({
         isflg: true,
@@ -338,7 +352,6 @@ Page({
 
   turns: function (angle) {
     let random = 360 * 15
-    // let awardName = this.data.luckDrawList.award.awardName //中奖内容
     // angle = 300
     this.aniLuckDraw = wx.createAnimation({
       duration: '3500',
@@ -356,15 +369,12 @@ Page({
       this.setData({
         isflg: false, //false 表示当前为两个按钮
         isflgId: 1, //通过id判断当前显示弹窗的内容
-        // awardName: awardName, //中奖内容
         isShowTitle: false, //不显示弹窗标题
         isDisabled: false //抽奖完毕
       })
       this.pupop.showPupop()
     }, 3800);
     this.dogetRotationList() //获奖信息 列表
-
-
   },
   //轮盘初始化
   currinl: function () {
@@ -447,10 +457,12 @@ Page({
     // wx.showLoading({
     //   title: '请稍等...',
     // })
-    let indexList = wx.getStorageSync('indexList')
+    this.setData({
+      indexList: wx.getStorageSync('indexList')
+    })
+    const indexList = this.data.indexList
     WxParse.wxParse('lotteryDescription', 'html', indexList.lotteryInfo.lotteryDescription, this, 5); //解析活动说明
-
-    console.log(indexList);
+    // console.log(indexList);
     if (indexList.errCode === "10002") {
       wx.showToast({
         title: indexList.msg,
@@ -460,7 +472,6 @@ Page({
     }
 
     if (indexList.ticketNum == 0) {
-      // wx.hideLoading()
       setTimeout(() => {
         wx.showToast({
           title: '您的奖券已不足',
@@ -501,6 +512,7 @@ Page({
     //停止下拉刷新
     // wx.stopPullDownRefresh();
 
+    //你不是平台信息新用户
     if (indexList.message) {
       wx.showToast({
         title: indexList.message,
@@ -521,7 +533,7 @@ Page({
       })
       this.pupop.showPupop() //打开弹窗
     }
-    this.getUserRedpackets()
+    // this.getUserRedpackets()
   },
 
   /* 获取红包列表 */
@@ -627,23 +639,6 @@ Page({
   onShareAppMessage: function (e) {
     //this.pupop.hidePupop() //先关闭上一个弹窗
     this.currinl() //将轮盘初始化
-
-
-    /*     if (this.data.luckDrawList.needBindPhone == 1 && this.data.luckDrawList.award.awardLevel != 0) { // 1 需要绑定手机号
-          console.log('start share');
-          this.setData({
-            isflg: true,
-            isflgId: 2,
-            popuptitle: '录入手机号',
-            popupbtn: '绑定手机号码',
-            awardDisplay: this.data.luckDrawList.award.awardDisplay, //账户内红包数目
-          })
-          this.pupop.showPupop() //打开弹窗
-          return
-        } */
-
-
-
     let sno = this.data.storeNo
     let uid = this.data.userId
     return {
@@ -731,9 +726,9 @@ Page({
               })
             }
           })
-        }, 3000);
+        }, 8000)
       }
-    }, 3000);
+    }, 3000)
   },
 
   /* 猫吃鱼的动画 */
@@ -750,7 +745,7 @@ Page({
         ani: animation.export()
       })
 
-      setTimeout(() => { //将鱼进行复位
+      setTimeout(() => {
         this.setData({
           anifishList: this.data.ticketNum //重新给鱼赋值
         })
@@ -786,7 +781,6 @@ Page({
       }, 3000)
     }
   },
-
 
 
 
