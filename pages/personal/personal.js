@@ -67,10 +67,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.showLoading({
-      title: '请稍等...',
-      duration: 2000
-    })
+    // wx.showLoading({
+    //   title: '请稍等...',
+    //   duration: 2000
+    // })
     this.pupop = this.selectComponent('#pupop') // 获得弹窗组件
     let sNo = wx.getStorageSync('storeNo')
     let uid = wx.getStorageSync('userId')
@@ -88,7 +88,8 @@ Page({
         imageList: this.doHandlePicUrl(res.data.result.picUrl), //实拍图片
       })
       wx.setStorageSync('remark', res.data.result.remark)
-      wx.hideLoading()
+      
+      // wx.hideLoading()
       //隐藏导航条加载动画
       wx.hideNavigationBarLoading();
       //停止下拉刷新

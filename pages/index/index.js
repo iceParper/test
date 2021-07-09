@@ -80,6 +80,7 @@ Page({
     oldAward: {},
     deadfish: 7, // 渲染死鱼
     isTicketFlg: false,
+    ticketLoding: '', //获取票数定时器
   },
   /**
    * 生命周期函数--监听页面加载
@@ -97,16 +98,19 @@ Page({
     })
   },
   onShow: function () {
-    /* 
-        this.setData({
-          screenHei: wx.getSystemInfoSync().screenHeight,
-          winHei: 750 / wx.getSystemInfoSync().windowWidth * wx.getSystemInfoSync().windowHeight
-        })
 
-        if (app.globalData.needLoading) {
-          this.dogetUserLogin()
-        }
-     */
+
+    /*     this.setData({
+          screenHei: wx.getStorageSync('height'),
+          winHei: wx.getStorageSync('weight')
+        }) */
+
+    /*
+            if (app.globalData.needLoading) {
+              this.dogetUserLogin()
+            }
+         */
+
     // 从个人页面绑定回来修改手机状态
     let userphone = wx.getStorageSync('userphone')
     if (userphone != '') {
@@ -125,6 +129,7 @@ Page({
       })
       this.pupop.showPupop() //打开弹窗
     }
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -313,6 +318,7 @@ Page({
             })
             return
           }
+
           if (res.data.errCode === "10002") {
             wx.showToast({
               title: res.data.msg,
@@ -333,23 +339,23 @@ Page({
             oldAward: res.data.award,
             needBindPhone: res.data.needBindPhone
           })
-
           let angle = this.data.luckDrawList.angle //后台返回中奖角度
           this.start() //启动鱼的动画
           setTimeout(() => {
             this.turns(angle) //开启转盘
           }, 1500);
+
         }).catch(err => {
           // console.log(err)
           this.setData({
             isDisabled: false, //打开按钮
           })
         })
+
       }
     }
   },
-
-
+  // 开启转盘动画
   turns: function (angle) {
     let random = 360 * 15
     // angle = 300
@@ -374,7 +380,7 @@ Page({
       })
       this.pupop.showPupop()
     }, 3800);
-    this.dogetRotationList() //获奖信息 列表
+    this.dogetRotationList() //获奖信息列表(ps:刷新要要放在延时里面不然抽奖过程会刷新页面导致页面闪烁)
   },
   //轮盘初始化
   currinl: function () {
@@ -454,15 +460,10 @@ Page({
 
   /* 系统用户登录  */
   dogetUserLogin: function () {
-    // wx.showLoading({
-    //   title: '请稍等...',
-    // })
-    this.setData({
-      indexList: wx.getStorageSync('indexList')
-    })
-    const indexList = this.data.indexList
+    const indexList = wx.getStorageSync('indexList')
     WxParse.wxParse('lotteryDescription', 'html', indexList.lotteryInfo.lotteryDescription, this, 5); //解析活动说明
     // console.log(indexList);
+
     if (indexList.errCode === "10002") {
       wx.showToast({
         title: indexList.msg,
@@ -482,7 +483,8 @@ Page({
     }
 
     // console.log(indexList.oldAward);
-    console.log("message:" + indexList.message)
+    // console.log("message:" + indexList.message)
+
     this.setData({
       ticketNum: indexList.ticketNum, //奖券数
       lotteryInfoObj: indexList,
@@ -497,8 +499,9 @@ Page({
       rouletteBgImg: indexList.lotteryInfo.lotteryTurntablePicUrl, //转盘图片
       oldAward: indexList.oldAward,
       anifishList: indexList.ticketNum, // 绘制鱼的数量
-    })
 
+    })
+    // console.log('index:' + indexList.oldAward);
     wx.setNavigationBarTitle({ //修改标题
       title: indexList.lotteryInfo.lotteryName,
     })
@@ -506,21 +509,10 @@ Page({
     this.dogetRotationList() //获奖信息轮播列表
     this.dogetTiketNum() //获取最新奖券
     wx.hideLoading()
-
     //隐藏导航条加载动画
     // wx.hideNavigationBarLoading();
     //停止下拉刷新
     // wx.stopPullDownRefresh();
-
-    //你不是平台信息新用户
-    if (indexList.message) {
-      wx.showToast({
-        title: indexList.message,
-        icon: 'none',
-        duration: 3000
-      })
-    }
-
 
     if (indexList.needBindPhone == 1 && indexList.oldAward != {}) { //首次弹窗
       this.setData({
@@ -533,7 +525,15 @@ Page({
       })
       this.pupop.showPupop() //打开弹窗
     }
-    // this.getUserRedpackets()
+
+    if (indexList.message) { //你不是平台信息新用户
+      console.log('index.js:' + indexList.message);
+      wx.showToast({
+        title: indexList.message,
+        icon: 'none',
+        duration: 3000
+      })
+    }
   },
 
   /* 获取红包列表 */
@@ -726,9 +726,10 @@ Page({
               })
             }
           })
-        }, 8000)
+        }, 2000)
+
       }
-    }, 3000)
+    }, 1000)
   },
 
   /* 猫吃鱼的动画 */
@@ -749,7 +750,8 @@ Page({
         this.setData({
           anifishList: this.data.ticketNum //重新给鱼赋值
         })
-      }, 1800)
+      }, 1400)
+
       setTimeout(() => { //将鱼进行复位
         animation.opacity(0).translateY(0).translateX(0).step({
           duration: 0,
@@ -759,6 +761,7 @@ Page({
           ani: animation.export(),
         })
       }, 3000)
+
     } else {
       var animation = wx.createAnimation({
         duration: 2000, //动画持续时间
