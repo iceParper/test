@@ -27,12 +27,7 @@ Page({
     popupbtn: '按钮', //弹窗按钮内容
     isShowTitle: true, //是否显示弹窗的标题
     isActiveBtn: false, //是否为活动说明的确认按钮
-    wininfoArray: [{ //获奖信息展示    
-        phone: '136****9128',
-        diffDateStr: '刚刚',
-        awardLevel: '2',
-        awardName: '喵市红包99元'
-      },
+    wininfoArray: [
       // {
       //   phone: '159****8512',
       //   diffDateStr: '两小时前',
@@ -464,13 +459,13 @@ Page({
     WxParse.wxParse('lotteryDescription', 'html', indexList.lotteryInfo.lotteryDescription, this, 5); //解析活动说明
     // console.log(indexList);
 
-    if (indexList.errCode === "10002") {
+ /*    if (indexList.errCode === "10002") {
       wx.showToast({
         title: indexList.msg,
         icon: 'none',
         duration: 10000
       })
-    }
+    } */
 
     if (indexList.ticketNum == 0) {
       setTimeout(() => {

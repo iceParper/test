@@ -1,7 +1,7 @@
 // 封装请求方式
 const app = getApp()
-const baseURL = 'https://lottery.sss1000.com/apitst/app'; //测试服务器
-// const baseURL = 'https://lottery.sss1000.com/api/app/';  //正式服务器
+// const baseURL = 'https://lottery.sss1000.com/apitst/app'; //测试服务器
+const baseURL = 'https://lottery.sss1000.com/api/app'; //正式服务器
 let _t = wx.getStorageSync('token') //获取token令牌
 let _u = wx.getStorageSync('userId') //用户唯一标识符
 let _v = wx.getStorageSync('_v') //小程序版本号

@@ -24,7 +24,7 @@ App({
       success: res => {
         if (res.code) {
           wx.request({
-            url: 'https://lottery.sss1000.com/apitst/app/user/login/wx',
+            url: 'https://lottery.sss1000.com/api/app/user/login/wx',
             method: "POST",
             data: {
               code: res.code,
@@ -38,18 +38,26 @@ App({
               '_om': wx.getStorageSync('_om')
             },
             success: (result) => {
-              wx.setStorageSync('indexList', result.data)
-              if (result.data.phone != null || result.data.phone != undefined || result.data.phone != '') {
-                wx.setStorageSync('userphone', result.data.phone) // 存用户手机号码
+              if (result.data.errCode === "10002") {
+                wx.showToast({
+                  title: result.data.msg,
+                  icon: 'none',
+                  duration: 20000
+                })
+              } else {
+                wx.setStorageSync('indexList', result.data)
+                if (result.data.phone != null || result.data.phone != undefined || result.data.phone != '') {
+                  wx.setStorageSync('userphone', result.data.phone) // 存用户手机号码
+                }
+                if (this.Callback) {
+                  this.Callback(result.data.token, result.data.userId)
+                }
+                // console.log('sno:' + result.data.lotteryInfo.storeNo);
+                wx.setStorageSync('storeNo', result.data.lotteryInfo.storeNo) //店铺编号
+                wx.setStorageSync('token', result.data.token) //用户令牌,有效期2小时
+                wx.setStorageSync('userId', result.data.userId) //用户唯一标识符
+                this.globalData.indexjs.dogetUserLogin() //执行index.js的登录
               }
-              if (this.Callback) {
-                this.Callback(result.data.token, result.data.userId)
-              }
-              // console.log('sno:' + result.data.lotteryInfo.storeNo);
-              wx.setStorageSync('storeNo', result.data.lotteryInfo.storeNo) //店铺编号
-              wx.setStorageSync('token', result.data.token) //用户令牌,有效期2小时
-              wx.setStorageSync('userId', result.data.userId) //用户唯一标识符
-              this.globalData.indexjs.dogetUserLogin() //执行index.js的登录
             },
             fail: (err) => {
               console.log(err);
