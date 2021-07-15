@@ -13,7 +13,7 @@
       <image src="{{rouletteBgImg}}" animation="{{animationData}}"></image>
       <!-- 转盘指针 -->
       <view class="round-pointer">
-        <image src="{{roundPointer}}"></image>
+        <image src="{{roundPointer}}" ></image>
       </view>
       <!-- 活动说明 -->
       <view class="text" data-active-id="0" bindtap="showPupop">

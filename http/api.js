@@ -5,7 +5,6 @@ const {
 
 // console.log('api:'+request);
 
-
 // 基于业务封装
 module.exports = {
   // 用户登录

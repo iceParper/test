@@ -38,7 +38,7 @@
   width: 680rpx;
   height: 680rpx;
   margin-top: 24rpx;
-  background: rgba(138, 138, 138, .3);
+  background: rgba(255, 255, 255, 0.1);
   position: relative;
 }
 
@@ -52,6 +52,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  /* top: -30rpx; */
   top: 0;
   left: 0;
   /* transform: translate(-50%, -50%); */
@@ -102,13 +103,16 @@
 .win-content {
   width: 680rpx;
   height: 224rpx;
-  background-color: #e0ac5ecc;
+  /* background-color: #e0ac5ecc; */
+  /* background-color: #473172; */
+  background-color: rgba(255, 255, 255, 0.1);
   margin-top: 34rpx;
   overflow: hidden;
   padding: 0rpx 24rpx;
   box-sizing: border-box;
   position: relative;
   border-radius: 10rpx;
+  color: #fff;
 }
 
 .win-content swiper {
@@ -129,11 +133,11 @@
 }
 
 /* 文本滚动样式 */
-@keyframes anis {
+/* @keyframes anis {
   100% {
     transform: translateY(-400rpx)
   }
-}
+} */
 
 .win-item .image {
   width: 32rpx;
@@ -251,6 +255,7 @@
   padding: 48rpx 40rpx;
   /* padding: 50rpx 15rpx 20rpx 15rpx; */
   box-sizing: border-box;
+  /* color: #D42B76; */
   color: #F2AB0B;
   position: absolute;
   top: -15px;

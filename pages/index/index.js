@@ -17,7 +17,7 @@ Page({
   data: {
     pageBg: '../../image/bg.png', //页面背景
     rouletteBgImg: '../../image/turntable.png', //轮盘图片
-    roundPointer: '', //指针图片
+    roundPointer: '../../image/pointer.png', //指针图片
     animationData: '', //转盘滚动动画
     // random: '', //随机数
     // trasn: 0, //转的角度
@@ -458,14 +458,6 @@ Page({
     const indexList = wx.getStorageSync('indexList')
     WxParse.wxParse('lotteryDescription', 'html', indexList.lotteryInfo.lotteryDescription, this, 5); //解析活动说明
     // console.log(indexList);
-
- /*    if (indexList.errCode === "10002") {
-      wx.showToast({
-        title: indexList.msg,
-        icon: 'none',
-        duration: 10000
-      })
-    } */
 
     if (indexList.ticketNum == 0) {
       setTimeout(() => {
