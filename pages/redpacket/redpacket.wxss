@@ -110,10 +110,10 @@ page {
   margin-top: 44rpx;
 }
 
-/* .pupop-item .code>canvas {
+.pupop-item .code>canvas {
   width: 390rpx;
   height: 134rpx;
-} */
+}
 
 .pupop-item .code>image {
   width: 100%;

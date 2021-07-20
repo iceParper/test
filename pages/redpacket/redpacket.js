@@ -1,5 +1,7 @@
 // pages/redpacket/redpacket.js
 import wxbarcode from '../../miniprogram_npm/wxbarcode/index'
+// const wxbarcode = require('../../miniprogram_npm/wxbarcode/index.js')
+
 const {
   getUserRedpacket
 } = require('../../http/api')
@@ -41,7 +43,7 @@ Page({
       //停止下拉刷新
       wx.stopPullDownRefresh()
     }, 1000);
-    
+
   },
   /**
    * 生命周期函数--监听页面显示
@@ -114,7 +116,9 @@ Page({
           awardDisplay: list[i].awardDisplay, //￥199.00
           awardBarNo: list[i].awardBarNo, //红包编号
         })
-        wxbarcode.barcode('barcode', list[i].awardBarNo, 390, 134) //条形码
+        setTimeout(() => {
+          wxbarcode.barcode('barcode', list[i].awardBarNo, 390, 134) //条形码
+        }, 100)
       }
     }
     this.pupop.showPupop()
