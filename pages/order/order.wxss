@@ -1,0 +1,185 @@
+/* pages/order/order.wxss */
+@import "../footerrules/footerrules.wxss";
+page {
+  background-color:#F4F5F4;
+}
+.order{
+  width: 750rpx;
+}
+.order_top{
+  width: 100%;
+  height: 260rpx;
+  padding: 24rpx;
+  margin: 12rpx 0rpx;
+  background-color: #FFFFFF;
+}
+.top_title{
+  width: 100%;
+  height: 40rpx;
+  display: flex;
+}
+.title_img{
+  width: 34rpx;
+  height: 34rpx;
+}
+.title_text{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 8rpx;
+  font-family: PingFangSC-regular;
+}
+.order_shop{
+  width: 100%;
+  height: 202rpx;
+  display: flex;
+  margin-top: 18rpx;
+}
+.order_shopimg{
+  width: 202rpx;
+  height: 202rpx;
+  border-radius: 8rpx;
+}
+.order_money{
+  width: 480rpx;
+  margin-left: 20rpx;
+}
+.money_sum{
+  color: rgba(16, 16, 16, 100);
+  font-size: 34rpx;
+  text-align: left;
+  margin-top: 14rpx;
+  font-family: PingFangSC-regular;
+}
+.money_condition{
+  color: rgba(190, 190, 190, 100);
+  font-size: 24rpx;
+  margin: 8rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.order_gobuy{
+  margin-top: 48rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.gobuy_sum{
+  color: rgba(228, 112, 54, 100);
+  font-size: 34rpx;
+  text-align: left;
+  display: flex;
+  font-weight: 600;
+  font-family: PingFangSC-bold;
+}
+.gobuy_sum .bi{
+  margin-top: 12rpx;
+  margin-left: 4rpx;
+  width: 22rpx;
+  height: 22rpx;
+  color: rgba(228, 112, 54, 100);
+  font-size: 17rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid rgba(228, 112, 54, 100);
+}
+.gobuy_sum .bi .text{
+  position: relative;
+  left: 2rpx;
+}
+.order_sum{
+  width: 100rpx;
+  display: flex;
+}
+.order_sum_number{
+  width: 76rpx !important;
+  height: 50rpx !important;
+  border-radius: 8rpx;
+  background-color: rgba(242, 242, 242, 100);
+  text-align: center; 
+  line-height: 50rpx;
+}
+.footer{
+  width: 100%;
+  background-color: #FFFFFF;
+  margin-top: 12rpx;
+}
+.indare, .rule, .notice{
+  width: 702rpx;
+  padding: 6rpx 24rpx;
+}
+.indare_title, .rule_title, .notice_title{
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-weight: 600;
+  font-family: PingFangSC-bold;
+}
+.indare_time, .indare_day, .rule_one, .rule_tow, .notice_one, .notice_tow{
+  color: rgba(40, 40, 40, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin: 12rpx 0rpx 12rpx 28rpx;
+}
+.indare_time>text, .indare_day>text{
+  font-weight: 600;
+}
+.rule_one>text, .rule_tow>text{
+  font-weight: 600;
+}
+.notice_one>text, .notice_tow>text{
+  font-weight: 600;
+}
+.payment{
+  width: 100%;
+  height: 148rpx;
+  display: flex;
+  background-color: #E47036;
+  position: fixed;
+  bottom: 0rpx;
+}
+.payment_total{
+  color: #E3A07F;
+  font-size: 28rpx;
+  text-align: left;
+  line-height: 148rpx;
+  margin-left: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.payment_gobuy_sum{
+  color: #FFFFFF;
+  font-size: 72rpx;
+  text-align: left;
+  display: flex;
+  margin-top: 24rpx;
+  margin-left: 24rpx;
+  font-weight: 600;
+  font-family: PingFangSC-bold;
+}
+.payment_gobuy_sum .payment_bi{
+  margin-top: 52rpx;
+  margin-left: 4rpx;
+  width: 22rpx;
+  height: 22rpx;
+  color: #FFFFFF;
+  font-size: 17rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid #FFFFFF;
+}
+.payment_gobuy_sum .payment_bi .text{
+  position: relative;
+  left: 3rpx;
+}
+.payment_confirm{
+  width: 218rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background-color: rgba(255, 255, 255, 100);
+  color: rgba(228, 112, 54, 100);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  line-height: 80rpx;
+  position: relative;
+  top: 34rpx;
+  left: 120rpx;
+}

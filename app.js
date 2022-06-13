@@ -3,7 +3,18 @@ App({
   globalData: {
     userInfo: null,
     indexjs: '',
-    needLoading: false
+    needLoading: false,
+    // order页面订单信息
+    orderInfo:{
+    },
+    // order页面优惠券集合
+    couponList:[],
+    // task页面任务状态
+    taskStatus:{},
+    // 控制是否已登录
+    taskFlag:true
+      
+    
   },
   onLaunch(options) {
     // wx.setStorageSync('query', options.query) //获取分享人的id 和 店铺编号
@@ -24,12 +35,13 @@ App({
       success: res => {
         if (res.code) {
           wx.request({
-            url: 'https://lottery.sss1000.com/api/app/user/login/wx',
+            url: 'https://lottery.sss1000.com/apitst/app/user/login/wx',
             method: "POST",
             data: {
               code: res.code,
               inviterId: options.query.uid, //分享人的id 
               storeNo: options.query.sno, //从分享进入获得的编号
+              shareId: options.query.share
             },
             header: {
               'content-type': 'application/json', // 默认值
@@ -38,6 +50,7 @@ App({
               '_om': wx.getStorageSync('_om')
             },
             success: (result) => {
+              console.log(result.data.msg)
               if (result.data.errCode === "10002") {
                 wx.showToast({
                   title: result.data.msg,

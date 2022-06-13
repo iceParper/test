@@ -1,0 +1,73 @@
+<!--pages/check/check.wxml-->
+<wxs module="filterTicket" src="./check.wxs"></wxs>
+<view class="top">
+   <view class="search-go">
+     <view class="search-img">
+        <van-icon name="search" color="#D7D7D7" size="48rpx"></van-icon>
+     </view>
+     <input class="input" placeholder="手机号或劵码" bindinput="handleInput" value="{{inputValue}}"/>
+     <view class="search-close">
+      <van-icon name="close" color="#D7D7D7" size="48rpx" bindtap="handleClear"></van-icon>
+     </view>
+   </view>
+   <view class="gosearch" bindtap="search">搜索</view>
+ </view>
+
+<!-- <view class="bottom_check">
+  <view class="coupon">
+        <view class="money">
+          <view class="money_title"><text>有效期至2021年12月22日</text></view>
+          <view class="money_main">
+            <view class="money_sum">￥30</view>
+            <view class="money_main_conter">
+              <view class="money_type">满减卷</view>
+              <view class="money_condition">满￥100可用</view>
+            </view>
+            </view>
+        </view>
+      <view class="gobuy" bindtap="checkdetails">
+        <view class="gobuy_goto">核销</view>
+      </view>
+  </view>
+</view> -->
+<block wx:for="{{ticketList}}" wx:key="index" wx:if="{{ticketList}}">
+  <view class="bottom_used" >
+  <view class="{{item.status == 'tobewritteneoff'?'coupon':'used_coupon'}}">
+        <view class="{{item.status == 'tobewritteneoff'?'money':'used_money'}}">
+          <view class="used_money_title"><text>有效期至{{item.finalUseTime}}</text></view>
+          <view class="used_money_main">
+            <view class="{{item.status == 'tobewritteneoff'?'money_sum':'used_money_sum'}}">{{item.couponTicketShow}}</view>
+            <view class="used_money_main_conter">
+              <view class="used_money_type">{{filterTicket(item.ticketCategoryType)}}</view>
+              <view class="used_money_condition">{{item.couponTicketShowAssociation}}</view>
+            </view>
+            </view>
+        </view>
+      <view class="{{item.status == 'tobewritteneoff'?'gobuy':'used_gobuy'}}" bindtap="checkused" data-cid="{{item.couponTicketId}}" data-uid="{{item.userTicketId}}">
+        <view class="used_gobuy_goto" wx:if="{{item.status=='tobewritteneoff'}}">核销</view>
+        <view class="used_gobuy_goto" wx:else>查看</view>
+      </view>
+  </view>
+  <view class="used_go" wx:if="{{item.status== 'writtenoff' }}">已使用</view>
+  <view class="expired_go" wx:if="{{item.status== 'expired' }}">已过期</view>
+</view>
+</block>
+
+<!-- <view class="bottom_expired">
+  <view class="expired_coupon">
+        <view class="expired_money">
+          <view class="expired_money_title"><text>有效期至2021年12月22日</text></view>
+          <view class="expired_money_main">
+            <view class="expired_money_sum">￥30</view>
+            <view class="expired_money_main_conter">
+              <view class="expired_money_type">满减卷</view>
+              <view class="expired_money_condition">满￥100可用</view>
+            </view>
+            </view>
+        </view>
+      <view class="expired_gobuy" bindtap="checkexpired">
+        <view class="expired_gobuy_goto">核销</view>
+      </view>
+  </view>
+  <view class="expired_go">已过期</view>
+</view> -->

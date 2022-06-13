@@ -89,18 +89,199 @@ page {
   text-align: center;
   /* margin-top: 12rpx; */
 }
+/* 核销 */
+.check{
+  width: 702rpx;
+  height: 92rpx;
+  margin: 44rpx 24rpx;
+  background: #fff;
+  position: relative;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
+  border-radius: 15rpx;
+}
+.search-go{
+  width: 702rpx;
+  height: 92rpx;
+  border-radius: 8rpx;
+  text-align: center;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.23);
+  display: flex;
+}
+.search-img{
+  margin:22rpx 0rpx 22rpx 24rpx ;
+  width: 48rpx;
+  height: 48rpx;
+}
+.input{
+  margin: 22rpx auto 0rpx 16rpx;
+  color: #CACACA;
+  font-size: 34rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+/* 当前拥有 */
+.nowhave{
+  margin: 44rpx 24rpx;
+  width: 702rpx;
+  height: 362rpx;
+  background: #fff;
+  position: relative;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
+  border-radius: 15rpx;
+}
+.nowhave .title {
+  font-size: 28rpx;
+  padding: 16rpx 40rpx;
+  /* border-bottom: 1rpx solid #f1f1f1; */
+  color: rgba(188, 188, 188, 100);
+  font-weight: bold;
+}
+.nowhave-conter{
+  height: 160rpx;
+  display: flex;
+}
+.nowhave-conter .text{
+  margin-left: 40rpx;
+  width: 316rpx;
+  height: 134rpx;
+  color: rgba(229, 114, 55, 100);
+  font-size: 96rpx;
+  text-align: left;
+  font-family: PingFangSC-bold;
+}
+.nowhave-conter .bi{
+  margin-top: 70rpx;
+  padding-left: 6rpx;
+  width: 30rpx;
+  height: 36rpx;
+  color: rgba(164, 164, 164, 100);
+  font-size: 24rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid rgba(164, 164, 164, 100);
+}
+.nowhave-bottom{
+  height: 128rpx;
+  line-height: 40rpx;
+  border-radius: 0rpx 0rpx 15rpx 15rpx;
+  background-color:rgba(249, 249, 249, 100);
+  text-align: center;
+  position: relative;
+  bottom: -5rpx;
+  display: flex;
+}
+.nowhave-bottom .hr{
+  margin-top: 20rpx;
+  width: 1rpx;
+  height: 88rpx;
+  background: #f1f1f1;
+}
+.nowhave-bottom-left{
+  width: 50%;
+}
+.nowhave-bottom .sum{
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+  color: rgba(168, 168, 168, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-bold;
+}
+.nowhave-bottom .number{
+  margin-bottom: 20rpx;
+  margin-left: 40rpx;
+  color: rgba(168, 168, 168, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  display: flex;
+}
+.nowhave-bottom .bi{
+  margin-top: 8rpx;
+  margin-left: 4rpx;
+  width: 22rpx;
+  height: 22rpx;
+  color: rgba(164, 164, 164, 100);
+  font-size: 17rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid rgba(164, 164, 164, 100);
+}
+.nowhave-bottom .bi .text{
+  position: relative;
+  top: -8rpx;
+  left: 2rpx;
+}
+/* 我的卷包 */
+.redpacket {
+  margin: 44rpx 24rpx;
+  background: #fff;
+  position: relative;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
+  border-radius: 15rpx;
+}
+.redpacket .title {
+  font-size: 28rpx;
+  padding: 16rpx 36rpx;
+  /* border-bottom: 1rpx solid #f1f1f1; */
+  color: #8A8A8A;
+  font-weight: bold;
+}
+.redpacket .hr {
+  width: 630rpx;
+  height: 1rpx;
+  background: #f1f1f1;
+  margin: 0 auto;
+}
+.redpacket .van-grid-item__content {
+  border-radius: 15rpx;
+}
+.redpacket .grid {
+  color: #8A8A8A;
+  font-size: 28rpx;
+}
+
+.redpacket .grid .text {
+  color: #8a8a8a;
+  font-size: 28rpx;
+}
+
+.redpacket .redpacket-btn {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+}
+
+.redpacket .redpacket-btn::after {
+  border: 0;
+}
+
+.redpacket .redpacket-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redpacket .redpacket-content .text {
+  font-size: 26rpx;
+  cursor: text;
+  font-weight: bold;
+}
+.redpacket .img{
+  width: 54rpx;
+  height: 54rpx;
+}
 
 /* 系统服务 */
 .system {
   margin: 44rpx 24rpx;
   background: #fff;
   position: relative;
-  box-shadow: 0rpx 8rpx 10rpx #bcbcbc;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
   border-radius: 15rpx;
 }
 
 .system .title {
-  font-size: 32rpx;
+  font-size: 28rpx;
   padding: 16rpx 36rpx;
   /* border-bottom: 1rpx solid #f1f1f1; */
   color: #8A8A8A;
@@ -111,6 +292,7 @@ page {
   width: 630rpx;
   height: 1rpx;
   background: #f1f1f1;
+  border: 1rpx solid #f1f1f1;
   margin: 0 auto;
 }
 
@@ -125,7 +307,7 @@ page {
 
 .system .grid .text {
   color: #8a8a8a;
-  font-size: 26rpx;
+  font-size: 28rpx;
 }
 
 /* 分享喵市样式 */
@@ -154,7 +336,7 @@ page {
 
 
 /* 店铺实拍 */
-.shop {
+/* .shop {
   margin: 44rpx 24rpx;
   color: #8A8A8A;
   font-weight: bold;
@@ -177,7 +359,7 @@ page {
 .shop .image>image {
   width: 100%;
   height: 100%;
-}
+} */
 
 /* 弹窗内容样式 */
 /* 客服 */

@@ -19,7 +19,6 @@
 
 .pupop-content {
   width: 596rpx;
-  height: 768rpx;
   background: #fff;
   position: relative;
   box-shadow: 0 8rpx 5rpx #bcbcbc;
@@ -40,7 +39,7 @@
 /* 头部 */
 .header {
   width: 100%;
-  height: 106rpx;
+  height: 126rpx;
   border-radius: 10rpx;
   position: relative;
   display: flex;
@@ -82,7 +81,7 @@
   padding: 0 50rpx;
   box-sizing: border-box;
   /* width: 496rpx; */
-  height: 500rpx;
+  height: 540rpx;
 }
 
 /* 尾部 */

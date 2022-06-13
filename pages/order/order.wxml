@@ -1,0 +1,62 @@
+<!--pages/order/order.wxml-->
+<view class="order">
+  <view class="order_top">
+    <view class="top_title">
+      <image class="title_img" src="{{titleimg}}"></image>
+      <view class="title_text">{{couponTicketInfo.commerical.commericalName}}</view>
+    </view>
+    <view class="order_shop">
+      <image class="order_shopimg" src="{{couponTicketInfo.couponTicket.couponTicketUrls}}"></image>
+     <view class="order_money">
+       <view class="money_sum">{{couponTicketInfo.couponTicket.couponTicketShow}}</view>
+       <view class="money_condition">{{couponTicketInfo.couponTicket.couponTicketShowAssociation}}</view>
+       <view class="order_gobuy">
+        <view class="gobuy_sum">￥{{couponTicketInfo.couponTicket.money}}+{{couponTicketInfo.couponTicket.catMoney}}
+          <view class="bi">
+            <text class="text">币</text>
+          </view>
+        </view>
+        <view class="order_sum">
+          <view bindtap="handleReduce">-</view>
+          <view class="order_sum_number">{{buyInfo.buyNum}}</view>
+          <view bindtap="handleAdd">+</view>
+        </view>
+       </view>
+     </view>
+    </view>
+  </view>
+  <view class="footer">
+    <!-- 有效期 -->
+    <view class="indare">
+      <text class="indare_title">有效期</text>
+      <view class="indare_time"><text>·</text>
+      购买后{{couponTicketInfo.couponTicket.usingTime}}天内有效</view>
+      <block wx:for="{{couponTicketInfo.usingTimeList}}" wx:key="index">
+        <view class="indare_day"><text>·</text>{{item.usingTimeRemind}}</view>
+      </block>
+    </view>
+  <!-- 规则提醒 -->
+  <view class="rule">
+      <text class="rule_title">规则提醒</text>
+      <block wx:for="{{couponTicketInfo.ruleRemindList}}" wx:key="index">
+        <view class="rule_one"><text>·</text>{{item.ruleRemind}}</view>
+      </block>
+    </view>
+  <!-- 温馨提示 -->
+  <view class="notice">
+      <text class="notice_title">温馨提示</text>
+      <block wx:for="{{couponTicketInfo.remarkRemindList}}" wx:key="index">
+        <view class="notice_one"><text>·</text>{{item.remarkRemind}}</view>
+      </block>
+    </view>
+</view>
+  <view class="payment">
+    <view class="payment_total"><text>合计</text></view>
+    <view class="payment_gobuy_sum">￥{{couponTicketInfo.couponTicket.money}}+{{couponTicketInfo.couponTicket.catMoney}}
+        <view class="payment_bi">
+         <text class="text">币</text>
+        </view>
+    </view>
+    <view class="payment_confirm" bindtap="paysuccess"><text>确认付款</text></view>
+  </view>
+</view>

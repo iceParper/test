@@ -1,0 +1,158 @@
+/* pages/redpacket/redpacket.wxss */
+page {
+  background-color:#F4F5F4;
+}
+.main{
+  width: 702rpx;
+  text-align: justify;
+  margin: 0rpx 24rpx;
+}
+/* 搜索  */
+.search{
+  width: 339rpx;
+  height: 150rpx;
+  margin-top: 24rpx;
+  line-height: 52rpx;
+  border-radius: 8rpx;
+  background-color: rgba(217, 210, 105, 100);
+  color: rgba(255, 255, 255, 100);
+  font-size: 36rpx;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+}
+.search-img{
+  margin-top: 54rpx;
+  width: 45rpx;
+  height: 45rpx;
+}
+.search-title{
+  margin-top: 50rpx;
+  color: rgba(255, 255, 255, 100);
+  font-size: 34rpx;
+  text-align: left;
+  font-family: PingFangSC-semiBold;
+}
+/* 瀑布流图  */
+.left, .right{
+  display: inline-block;
+  vertical-align: top;
+  width: 339rpx;
+}
+.left{
+  padding-top: 24rpx;
+}
+.right{
+  margin-top: -150rpx;
+  padding-bottom: 24rpx;
+  float:right;
+  /* margin-right: 24rpx; */
+}
+.item{
+  width: 100%;
+  height: 498rpx;
+  margin-bottom: 24rpx;
+  display: inline-block;
+  border-radius: 15rpx;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.item .name{
+  margin-top: -10rpx;
+  height: 162rpx;
+  align-items: center;
+  background-color:#FFFFFF;
+  border-radius: 0rpx 0rpx 15rpx 15rpx;
+}
+.name-coupon{
+  margin-left: 24rpx;
+  padding-top: 24rpx;
+  color: rgba(16, 16, 16, 100);
+  font-size: 34rpx;
+  text-align: left;
+  font-weight: 600;
+  font-family: PingFangSC-semiBold;
+}
+.name-title{
+  margin-left: 24rpx;
+  margin-top: 24rpx;
+  color: rgba(138, 138, 138, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.item-img{
+  width: 100%;
+  border-radius: 15rpx 15rpx 0rpx 0rpx;
+}
+/* 悬浮按钮 */
+.bottom{
+  width: 80rpx;
+  height: 240rpx;
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  right: 10rpx;
+  bottom: 50rpx;
+  z-index: 1000;
+}
+.bottom .stick{
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 40rpx;
+  border-radius: 45px;
+  background-color: rgba(242, 171, 11, 81);
+  text-align: center;
+}
+.bottom .img{
+  margin-top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.bottom .task{
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 40rpx;
+  border-radius: 45px;
+  background-color: #A6A44E;
+  text-align: center;
+}
+.bottom .packet{
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 40rpx;
+  border-radius: 45px;
+  background-color: rgba(228, 112, 54, 68);
+  text-align: center;
+}
+.gototask{
+  width: 100%;
+  height: 324rpx;
+  line-height: 64rpx;
+  border-radius: 8rpx;
+  background-color: rgba(239, 186, 172, 100);
+  color: rgba(255, 255, 255, 100);
+  text-align: center;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
+  font-family: Arial;
+}
+.dotask{
+font-size: 36rpx;
+font-weight: 600;
+padding-top: 46rpx;
+}
+.goshare{
+  font-size: 26rpx;
+}
+.acquire{
+  margin: 10rpx 60rpx;
+  width: 220rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
+  background-color: #FEFEFE;
+  color: rgba(239, 186, 172, 100);
+  font-size: 34rpx;
+  text-align: center;
+  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.4);
+  font-family: Arial;
+}

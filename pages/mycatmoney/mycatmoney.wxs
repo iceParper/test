@@ -1,0 +1,4 @@
+function filterTicket(data){
+  return data == 'FULLDISTOUNT' ? '满减券':(data == 'DISCOUNT'?'打折券':'权益券')
+}
+module.exports = filterTicket

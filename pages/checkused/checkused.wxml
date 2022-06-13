@@ -1,0 +1,67 @@
+<!--pages/checkdetails/checkdetails.wxml-->
+<view class="checkdetails">
+    <view class="checkdetails_title">
+      <image class="title_img" src="{{lightImg}}" wx:if="{{barCodeAndStatus.appUserCouponTicket.status == 'tobewritteneoff'}}"></image>
+      <image class="title_img" src="{{packetimg}}" wx:else></image>
+      <!-- 主券展示和优惠券类型展示 -->
+      <view class="money_sum {{barCodeAndStatus.appUserCouponTicket.status == 'tobewritteneoff'? 'orange':'gray'}}">{{barCodeAndStatus.couponTicket.couponTicketShow}}{{barCodeAndStatus.couponTicket.ticketCategoryType}}</view>
+      <!-- 副券展示 -->
+      <view class="money_condition">{{barCodeAndStatus.couponTicket.couponTicketShowAssociation}}</view>
+    </view>
+    <view class="check_time">
+      <view class="time_title">获得时间</view>
+      <view class="time_sum">{{barCodeAndStatus.appUser.createAt}}</view>
+    </view>
+    <view class="check_phone">
+      <view class="phone_title">手机号码</view>
+      <view class="phone_sum">{{barCodeAndStatus.appUser.phone}}</view>
+    </view>
+    <view class="check_packet">
+      <view class="packet_title">优惠券码</view>
+      <view class="packet_sum">{{barCodeAndStatus.appUserCouponTicket.barCodeNo}}</view>
+    </view>
+    <view class="used_go" wx:if="{{barCodeAndStatus.appUserCouponTicket.status == 'writtenoff'}}">已使用</view>
+  </view>
+<view class="check_bottom">
+<block wx:if="{{barCodeAndStatus.couponTicket.ticketCategoryType == 'FULLDISCOUNT' || barCodeAndStatus.couponTicket.ticketCategoryType == 'DISCOUNT'}}">
+  <input wx:if="{{barCodeAndStatus.appUserCouponTicket.status == 'tobewritteneoff'}}" class="input_sum" placeholder="请输入消费金额" bindinput="handleInput" value="{{inputValue}}"></input>
+  <view class="use_record_buysum">
+      <view class="buysum_title">消费金额</view>
+      <view class="buysum_sum">￥{{sum}}</view>
+    </view>
+    <view class="use_record_cheapsum">
+      <view class="cheapsum_title">优惠金额</view>
+      <view class="cheapsum_sum">￥{{discountAmount}}</view>
+    </view>
+    <view class="use_record_paysum">
+      <view class="paysum_title">还需支付</view>
+      <view class="paysum_sum">￥{{toPay}}</view>
+    </view>
+    <view class="use_record_time" wx:if="{{barCodeAndStatus.appUserCouponTicket.status == 'writtenoff'}}">
+      <view class="time_title">核销时间</view>
+      <view class="time_sum">{{barCodeAndStatus.appUserCouponTicket.wokerTime}}</view>
+    </view>
+  </block>
+
+    <button class="check_paysum check_writtenoff" bindtap="checkpaysum" wx:if="{{barCodeAndStatus.appUserCouponTicket.status == 'writtenoff'}}">
+       <view class="gotocheck" >取消核销</view>
+    </button>
+    <button class="check_paysum check_tobewrittenoff" bindtap="checkpaysum" wx:if="{{barCodeAndStatus.appUserCouponTicket.status == 'tobewritteneoff'}}">
+       <view class="gotocheck">确认核销</view>
+    </button>
+</view>
+<import src="../footerrules/footerrules"></import>
+<template is="footerrules"></template>
+
+<!-- modal弹窗  modalView是自定义标签 -->
+<!-- <view wx:for="{{showModal}}"> -->
+  <modalView show="{{showModal}}" bindcancel="modalcancel" bindconfirm="handleRequest" single='{{single}}'>
+<view class="model_content">
+  <scroll-view scroll-y class="main_content">
+   <text>确定</text>
+   <text class="modal_delect" wx:if="{{barCodeAndStatus.appUserCouponTicket.status == 'writtenoff'}}">取消</text>
+   <text>该优惠券核销吗？</text>
+  </scroll-view>
+</view>
+</modalView>
+<!-- </view> -->

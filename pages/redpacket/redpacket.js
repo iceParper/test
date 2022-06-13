@@ -1,168 +1,186 @@
-// pages/redpacket/redpacket.js
-import wxbarcode from '../../miniprogram_npm/wxbarcode/index'
-// const wxbarcode = require('../../miniprogram_npm/wxbarcode/index.js')
-
-const {
-  getUserRedpacket
-} = require('../../http/api')
+// pages/helpcenter/helpcenter.js
+// const WxParse = require('../../wxParse/wxParse.js')
+const WxParse = require('../../wxParse/wxParse')
+const {getCardList} = require("../../http/api")
+var app =getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    redpacketList: [], //用户 未使用 红包列表
-    awardDisplay: '', //奖品展示信息
-    awardBarNo: '', //奖品条形码编号
-    iconShow: true, //小问号详情信息的显示隐藏
-    isNotUsed: false, //是否未使用 -- false默认显示 true为隐藏
-    isUsed: false, //是否已使用
-    isExpired: false, //是否已过期
-    storeNo: null, //店铺号
-    userId: null, //用户id
+    remark: '',
+    search: '../../image/ze-search Copy@1x.png',    //搜索图片
+    stick: '../../image/md-publish Copy@1x.png',    //置顶图片
+    task: '../../image/riFill-calendar-check-fill Copy@1x.png',    //任务图片
+    packet:'../../image/riFill-coupon-3-fill Copy@1x.png',   //劵包图片
+    // note:[    //瀑布流布局图片
+    // {
+    //   coupon: '满100减50',
+    //   name: '东北烧烤',
+    //   url: '../../image/2.png'
+    // },
+    // {
+    //   coupon: '85折优惠劵',
+    //   name: '老王大饭店',
+    //   url: '../../image/3.png'
+    // },
+    // {
+    //   coupon: '新客送免费招牌炸鸡',
+    //   name: '韩式明洞炸鸡店',
+    //   url: '../../image/4.png'
+    // },
+    // {
+    //   coupon: '充值100减60',
+    //   name: '一剪没理发店',
+    //   url: '../../image/5.png'
+    // },
+    // {
+    //   coupon: '送东北大米饭快来',
+    //   name: '张师傅家常菜，很多新口味.',
+    //   url: '../../image/6.png'
+    // },
+    // {
+    //   coupon: '送东北大米饭快来尝啊',
+    //   name: '张师傅家常菜，很多新口味',
+    //   url: '../../image/6.png'
+    // },
+    // {
+    //   coupon: '送东北大米饭快来',
+    //   name: '张师傅家常菜，很多新口味',
+    //   url: '../../image/6.png'
+    // },
+    //   // {
+    //   //   dotask:'随 机 任 务',
+    //   //   goshare:'分享群聊',
+    //   //   acquire:'去完成',
+    //   // }
+    //   ],
+      // 查询信息
+      queryInfo:{
+        pageSize:5,
+        pageNum:1
+      },
+      // 卡片列表
+      cardList:[],
+      // 导航列表
+      naviList:[],
+      // 控制定时器的开关
+      flag:true
   },
-
-
+  timer:null,
+  // imageLoad: function () {
+  //   this.setData({
+  //     imageWidth: wx.getSystemInfoSync().windowWidth
+  //   })
+  // }
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    wx.showLoading({
-      title: '请稍等...',
+     
+  //  跳转到搜索页面
+  gosearch: function(options){
+    wx.navigateTo({
+      url: '../gosearch/gosearch',
     })
-    let sNo = wx.getStorageSync('storeNo')
-    let uid = wx.getStorageSync('userId')
+  },
+  gototask: function(options){
+    wx.navigateTo({
+      url: '../task/task',
+    })
+  },
+  mypacket: function(options){
+    wx.navigateTo({
+      url: '../mypacket/mypacket',
+    })
+  },
+  coupondetails: function(e){
+    console.log(e);
+    var couponTickeId = e.currentTarget.dataset.id
+    // console.log(couponTickeId);
+    wx.navigateTo({
+      url: `../coupondetails/coupondetails?id=${couponTickeId}`,
+    })
+  },
+  gotop:function(e){
+    wx.pageScrollTo({
+       scrollTop: 0,
+    })
+  },
+  //获取券商城卡片列表
+  async getList(){
+    let res = await getCardList(this.data.queryInfo)
+    var cList = []
+    var nList =[]
+    res.data.fallCardList.forEach(item => {
+      if(item.fallCardType == "navigation"){
+        nList.push(item)
+      }else{
+        cList.push(item)
+      }
+    })
     this.setData({
-      storeNo: sNo, //店铺号
-      userId: uid, //用户id
+      cardList:cList
     })
-    setTimeout(() => {
-      wx.hideLoading()
-      //隐藏导航条加载动画
-      wx.hideNavigationBarLoading();
-      //停止下拉刷新
-      wx.stopPullDownRefresh()
-    }, 1000);
-
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function (options) {
-    // console.log('onshow');
-    // 用户红包列表
-    getUserRedpacket({ //请求红包列表
-      pageSize: 1,
-      pageNum: 1
-    }).then(res => {
-      let result = res.data.appUserAwardList
-      if (res.data.errCode == '10001') {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none'
-        })
-        wx.hideLoading()
-        return
-      }
-      if (result != undefined) {
-        this.setData({ //赋值给遍历数组
-          redpacketList: result
-        })
-        // 遍历判断某项是否需要显示
-        result.forEach(item => {
-          if (item.status == 1) { //是否有未使用数据
-            this.setData({
-              isNotUsed: true,
-            })
-          } else if (item.status == 2) { //是否有已使用数据
-            this.setData({
-              isUsed: true,
-            })
-          } else if (item.status == 3) { //是否有已过期数据
-            this.setData({
-              isExpired: true,
-            })
-          } else {
-            this.setData({
-              isNotUsed: false, //是否未使用
-              isUsed: false, //是否已使用
-              isExpired: false, //是否已过期
-            })
-          }
-        });
-      }
-    }).catch(err => {
-      console.log(err)
+    this.setData({
+      naviList:nList
     })
+    console.log(res);
+    console.log(this.data.cardList);
+    console.log(this.data.naviList);
+    // console.log(this.data.cardList);
   },
-
+  onLoad: function (options) {
+    WxParse.wxParse('remark', 'html', wx.getStorageSync('remark'), this, 5); //解析
+    this.getList()
+    
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // 获得组件
-    this.pupop = this.selectComponent('#pupop')
+    console.log(2);
   },
-  /* 立即使用--显示弹窗 */
-  showPupop: function (e) {
-    let index = e.currentTarget.dataset.index
-    let list = this.data.redpacketList
-    for (let i = 0; i < list.length; i++) {
-      if (index === i) { //当前点击的下标
-        this.setData({
-          awardDescription: list[i].awardDescription, //可抵扣百分之二十
-          storeName: list[i].storeName, //店铺名称
-          awardDisplay: list[i].awardDisplay, //￥199.00
-          awardBarNo: list[i].awardBarNo, //红包编号
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  // 定时器
+  theTimer(){
+    var count = 0
+    var that = this
+    this.timer = setInterval(function(){
+      count++
+      console.log(count);
+      if(count == 5){
+        clearInterval(that.timer)
+        console.log("任务完成");
+        var obj = {
+          taskId:5,
+          taskStatus:'complete'
+        }
+        app.globalData.taskStatus = obj
+        that.setData({
+          flag:false
         })
-        setTimeout(() => {
-          wxbarcode.barcode('barcode', list[i].awardBarNo, 390, 134) //条形码
-        }, 100)
       }
+    },1000)
+   
+   
+  },
+  onShow: function () {
+    console.log(3);
+    if(this.data.flag){
+      this.theTimer()
     }
-    this.pupop.showPupop()
   },
-  _btnok: function () { //确定
-    this.pupop.hidePupop()
-  },
-  _error: function () { //关闭
-    this.pupop.hidePupop()
-  },
-
-  /* 小问号的显示事件 */
-  doIconShow: function (e) {
-    let index = e.currentTarget.dataset.index
-    let list = this.data.redpacketList
-    for (let i = 0; i < list.length; i++) {
-      if (index === i) { //当前点击的下标
-        this.setData({
-          awardDescription: list[i].awardDescription, //可抵扣百分之二十
-          storeName: list[i].storeName, //店铺名称
-          awardDisplay: list[i].awardDisplay, //￥199.00
-          awardBarNo: list[i].awardBarNo, //红包编号
-        })
-        wxbarcode.barcode('barcode', list[i].awardBarNo, 390, 134) //条形码
-      }
-    }
-    this.setData({
-      iconShow: false
-    })
-  },
-  /* 小问号的隐藏事件 */
-  doIconHidden: function () {
-    this.setData({
-      iconShow: true
-    })
-  },
-
-
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    clearInterval(this.timer)
   },
 
   /**
@@ -172,20 +190,11 @@ Page({
 
   },
 
-  /* 自定--刷新 */
-  onRefresh: function () {
-    //在当前页面显示导航条加载动画
-    wx.showNavigationBarLoading();
-    //显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框
-    this.onLoad()
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    //调用刷新时将执行的方法
-    this.onRefresh();
+
   },
 
   /**
@@ -198,25 +207,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  /* 分享小程序 */
   onShareAppMessage: function () {
-    let sno = this.data.storeNo
-    let uid = this.data.userId
-    return {
-      title: '分享',
-      path: '/pages/index/index?uid=' + uid + '&sno=' + sno,
-      success: function (res) {
-        console.log(res);
-        // 转发成功
-        wx.showToast({
-          title: "分享成功",
-          icon: 'success',
-          duration: 2000
-        })
-      },
-      fail: function (res) {
-        // 分享失败
-      },
-    }
-  },
+
+  }
 })

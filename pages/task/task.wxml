@@ -1,0 +1,122 @@
+<!--pages/task/task.wxml-->
+<wxs module="taskFilter" src="./task.wxs"></wxs>
+<view class="task">
+  <view class="tag">
+      <view class="tag_one" style="opacity: {{0.5}};"></view>
+      <view class="tag_tow" style="opacity: {{0.5}};"></view>
+      <view class="tag_three" style="opacity: {{0.5}};"></view>
+      <view class="tag_four" style="opacity: {{0.5}};"></view>
+  </view>
+  <view class="task_top">
+    <view class="task_top_title">
+     <view class="title_text">当前拥有</view>
+     <image class="fish_img" src="{{fishimg}}"></image>
+     <view class="fish_sum">x222</view>
+    </view>
+    <view class="task_plan">
+      <view class="plan_img">
+        <image class="plan_img_one" src="{{plan_img_one}}"></image>
+        <image class="plan_img_tow" src="{{plan_img_tow}}"></image>
+      </view>
+      <view class="plan_key">
+        <view class="key_one"></view>
+        <view class="key_tow"></view>
+      </view>
+      <view class="task_sum">
+        <view class="task_sum_plan">
+          <text class="task_sum_text">700/1000</text>
+        </view>
+      </view>
+    </view>
+    <view class="gofish">距离获得下一个小鱼干</view>
+  </view>
+  <view class="task_bottom">
+    <view class="task_bottom_title">今日任务</view>
+    <view class="loginday" wx:for="{{taskList}}" wx:key="index">
+      <view class="logindayimg">
+        <image class="loginday_img" src="{{loginday_img}}"></image>
+      </view>
+      <view class="login_day">
+        <view class="loginday_title">{{taskFilter.taskType(item.taskType)}}</view>
+        <view class="loginday_sum">
+          <text>能量</text>
+          <view class="loginday_sum_sum">+{{item.energy}}</view>
+        </view>
+      </view>
+      <button class="goget tocomplete" bindtap="handleTask" data-id="{{item.taskId}}" wx:if="{{item.taskId !== 6}}">{{taskFilter.taskStatus(item.statusTask)}}</button>
+      <button class="goget tocomplete" open-type="share" wx:else data-id="{{item.taskId}}">{{taskFilter.taskStatus(item.statusTask)}}</button>
+    </view>
+    <!-- <view class="browse">
+      <view class="browseimg">
+        <image class="browse_img" src="{{browse_img}}"></image>
+      </view>
+      <view class="browse_packet">
+        <view class="browse_title">浏览[劵商城]30s</view>
+        <view class="browse_sum">
+          <text>能量</text>
+          <view class="browse_sum_sum">+150</view>
+        </view>
+      </view>
+      <view class="finish">已完成</view>
+    </view>
+    <view class="sharefriend">
+      <view class="sharefriendimg">
+        <image class="sharefriend_img" src="{{sharefriend_img}}"></image>
+      </view>
+      <view class="share_friend">
+        <view class="sharefriend_title">分享给朋友逛一逛</view>
+        <view class="sharefriend_sum">
+          <text>能量</text>
+          <view class="sharefriend_sum_sum">+150</view>
+        </view>
+      </view>
+      <view class="gofinish">去完成</view>
+    </view>
+    <view class="sharegroup">
+      <view class="sharegroupimg">
+        <image class="sharegroup_img" src="{{sharegroup_img}}"></image>
+      </view>
+      <view class="share_group">
+        <view class="sharegroup_title">分享到50人及以上的群聊
+        <text class="sharegroup_title_text">4/5</text>
+        </view>
+        <view class="sharegroup_sum">
+          <text>能量</text>
+          <view class="sharegroup_sum_sum">+150</view>
+          <text>(每日最多获得5次)</text>
+        </view>
+      </view>
+      <view class="finish">已完成</view>
+    </view>
+    <view class="getshare">
+      <view class="getshareimg">
+        <image class="getshare_img" src="{{getshare_img}}"></image>
+      </view>
+      <view class="get_share">
+        <view class="getshare_title">被分享者参与抽奖
+        <text class="getshare_title_text">4/5</text>
+        </view>
+        <view class="getshare_sum">
+          <text>能量</text>
+          <view class="getshare_sum_sum">+150</view>
+          <text>(每日最多获得5次)</text>
+        </view>
+      </view>
+      <view class="finish">已完成</view>
+    </view>
+    <view class="goshopping">
+      <view class="goshoppingimg">
+        <image class="goshopping_img" src="{{goshopping_img}}"></image>
+      </view>
+      <view class="go_shopping">
+        <view class="goshopping_title">每日登录</view>
+        <view class="goshopping_sum">
+          <text>能量</text>
+          <view class="goshopping_sum_sum">+20</view>
+        </view>
+      </view>
+      <view class="finish">已完成</view>
+    </view> -->
+  </view>
+  <view class="oneget">一键领取</view>
+</view>

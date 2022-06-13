@@ -1,0 +1,69 @@
+<!--pages/mycatmoney/mycatmoney.wxml-->
+<wxs module="filterTicket" src="./mycatmoney.wxs"></wxs>
+<view class="mycat_top">
+  <view class="top_money">
+  <view class="now_text" style="opacity: {{0.4}};">当前</view>
+  <view class="now_money">{{catMoneyInfo.remainCatMoneyNum}}</view>
+  <view class="cat_bi"> 
+      <text class="text">币</text>
+  </view>
+  </view>
+  <view class="hr" style="opacity: {{0.2}};"></view>
+  <view class="now_bottom">
+    <view class="top_expend">
+      <view class="top_expend_text"  style="opacity: {{0.4}};">支出</view>
+      <view class="top_expend_sum">{{catMoneyInfo.spendNum}}</view>
+    </view>
+    <view class="bottom_hr" style="opacity: {{0.2}};"></view>
+    <view class="top_income">
+      <view class="top_income_text" style="opacity: {{0.4}};">收入</view>
+      <view class="top_income_sum">{{catMoneyInfo.incomeNum}}</view>
+    </view>
+    <view class="bottom_hr" style="opacity: {{0.2}};"></view>
+    <view class="top_past">
+      <view class="top_past_text" style="opacity: {{0.4}};">月底过期</view>
+      <view class="top_past_sum">{{catMoneyInfo.monthExpiredCatMoneyNum}}</view>
+    </view>
+  </view>
+</view>
+<view class="mycat_bottom">
+  <view class="bottom_title">
+    <view class="title_one {{currentId == '1'?'current':'unCurrent'}}" bindtap="handleTap" data-id="1">全部</view>
+    <view class="title_tow {{currentId == '2'?'current':'unCurrent'}}" bindtap="handleTap" data-id="2">收入</view>
+    <view class="title_three {{currentId == '3'?'current':'unCurrent'}}" bindtap="handleTap" data-id="3">支出</view>
+  </view>
+  <view class="footer_hr"></view>
+  <view class="footer" wx:for="{{CatMoneyLogList}}" wx:key="index" wx:if="{{currentId == '1'}}">
+  <view class="mycat_one" >
+    <view class="one">
+      <view class="one_time">{{item.createTime}}</view>
+    <view class="one_title" wx:if="{{item.lotteryName}}">{{item.lotteryName}}</view>
+    <view class="one_title" wx:else="{{item.couponTicketShow}}">{{item.commericalName}}|{{item.couponTicketShow}}（{{filterTicket(item.ticketCategoryType)}}）</view>
+    </view>
+  <view class="one_sum">{{item.receiveCatMoney}}</view> 
+  </view>
+  <view class="footer_hr"></view>
+  </view>
+  <view class="footer" wx:for="{{getCatMoney}}" wx:key="index" wx:if="{{currentId == '2'}}">
+  <view class="mycat_one" >
+    <view class="one">
+      <view class="one_time">{{item.createTime}}</view>
+    <view class="one_title" wx:if="{{item.lotteryName}}">{{item.lotteryName}}</view>
+    <view class="one_title" wx:else="{{item.couponTicketShow}}">{{item.commericalName}}|{{item.couponTicketShow}}（{{filterTicket(item.ticketCategoryType)}}）</view>
+    </view>
+  <view class="one_sum">{{item.receiveCatMoney}}</view> 
+  </view>
+  <view class="footer_hr"></view>
+  </view>
+  <view class="footer" wx:for="{{mulCatMoney}}" wx:key="index" wx:if="{{currentId == '3'}}">
+  <view class="mycat_one" >
+    <view class="one">
+      <view class="one_time">{{item.createTime}}</view>
+    <view class="one_title" wx:if="{{item.lotteryName}}">{{item.lotteryName}}</view>
+    <view class="one_title" wx:else="{{item.couponTicketShow}}">{{item.commericalName}}|{{item.couponTicketShow}}（{{filterTicket(item.ticketCategoryType)}}）</view>
+    </view>
+  <view class="one_sum">{{item.receiveCatMoney}}</view> 
+  </view>
+  <view class="footer_hr"></view>
+  </view>
+</view>

@@ -1,0 +1,27 @@
+<!--pages/footerrules/footerrules.wxml-->
+<template name="footerrules">
+<view class="footer">
+    <!-- 有效期 -->
+    <view class="indare">
+      <text class="indare_title">有效期</text>
+      <view class="indare_time"><text>·</text>
+      购买后30天内有效</view>
+      <view class="indare_day"><text>·</text>2021年12月1日、2021年12月1日、2021年12月1日、2021年12月1日</view>
+    </view>
+  <!-- 规则提醒 -->
+  <view class="rule">
+      <text class="rule_title">规则提醒</text>
+      <view class="rule_one"><text>·</text>
+      不可退</view>
+      <view class="rule_tow"><text>·</text>除酒水外，消费满100，除酒水部分可以享受此优惠</view>
+    </view>
+  <!-- 温馨提示 -->
+  <view class="notice">
+      <text class="notice_title">温馨提示</text>
+      <view class="notice_one"><text>·</text>
+      用其他平台支付，若产生纠纷，与本平台无关
+      </view>
+      <view class="notice_tow"><text>·</text>酒店内不可以耍酒疯</view>
+    </view>
+</view>
+</template>

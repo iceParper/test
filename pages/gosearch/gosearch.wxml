@@ -1,0 +1,60 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="gosearch">
+<!-- 搜索框 -->
+ <view class="top">
+   <view class="search-go">
+     <view class="search-img">
+        <van-icon name="search" color="#D7D7D7" size="48rpx"></van-icon>
+     </view>
+     <input class="input" placeholder="搜索" bindinput="handleInput" value="{{inputValue}}" />
+     <view class="search-close">
+      <van-icon name="close" color="#D7D7D7" size="48rpx" bindtap="handleClear"></van-icon>
+     </view>
+   </view>
+   <view class="gosearch" bindtap="search">搜索</view>
+ </view>
+ <!-- 搜索历史 -->
+ <view class="history" wx:if="{{history}}"  >
+   <view class="history_title">
+     <text class="text">历史搜索</text>
+        <view class="history_delect">
+          <button type="primary" bindtap="history_delect" class="del" >
+           <van-icon name="delete" class="delete" color="#D5D5D5" size="36rpx">
+           </van-icon>
+          </button>
+        </view>
+  </view>
+  <view class="history_list">
+    <text wx:for="{{newArray}}" wx:key="key" data-text="{{item}}" bindtap="textfz">{{item}}</text> 
+  </view>
+ </view>
+ <!-- 搜索出来的内容 -->
+ <view class='swiper_con' wx:if="{{shoppinglist}}">
+  <view class='swiper_con_view' wx:for="{{shoppingarray}}" wx:key="id" wx:if='{{item.status=="1"?true:false}}'>
+  <view class="item">
+    <image class="item-img" src="{{url}}" mode="widthFix"></image>
+    <view class="name">
+      <view class="name-coupon"><text>{{coupon}}</text></view>  
+      <view class="name-title"><text>{{name}}</text></view>
+      </view>
+  </view>
+</view>
+ </view>
+ <!-- 搜索指定内容 -->
+ <view class="fixedsearch">
+  <view class="fixedsearch_title">
+    <text class="text">搜索指定内容</text>
+  </view>
+  <!-- 指定搜索类目 -->
+  <view class="category">
+   <view class="cate">美食
+    <van-icon name="fire" color="#E47036" size="28rpx"></van-icon>
+   </view>
+   <view class="hr"></view>
+   <view class="hair">美发</view>
+   <view class="hr"></view>
+   <view class="beautify">美容</view>
+  </view>
+ </view>
+
+</view>

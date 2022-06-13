@@ -1,0 +1,91 @@
+/* pages/checkused/checkused.wxss */
+/* pages/checkdetails/checkdetails.wxss */
+@import "../footerrules/footerrules.wxss";
+page {
+  background-color:#F4F5F4;
+}
+.checkdetails{
+  width: 750rpx;
+  height: 430rpx;
+  background-color: #FFFFFF;
+  margin: 12rpx 0rpx;
+}
+.checkdetails_title{
+  width: 100%;
+  height: 60rpx;
+  margin-left: 24rpx;
+  margin-bottom: 32rpx;
+  display: flex;
+}
+.title_img{
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 20rpx;
+}
+.money_sum{
+  color: #BEBEBE;
+  font-size: 44rpx;
+  text-align: left;
+  margin-top: 14rpx;
+  font-weight: 600;
+  font-family: PingFangSC-regular;
+}
+.money_condition{
+  color: #BEBEBE;
+  font-size: 28rpx;
+  margin-left: 12rpx;
+  margin-top: 32rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.check_time, .check_phone, .check_packet, .record_time{
+  display: flex;
+  margin: 12rpx 48rpx;
+}
+.time_title, .phone_title, .packet_title, .record_title{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.time_sum, .phone_sum, .packet_sum, .record_sum{
+  margin-left: 24rpx;
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.check_paysum{
+  width: 702rpx;
+  height: 92rpx;
+  border-radius: 8rpx;
+  margin: 36rpx 24rpx 12rpx 24rpx;
+  background-color: #E47036;
+  color: rgba(255, 255, 255, 100);
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  display: flex;
+}
+.gotocheck{
+  width: 100%;
+  line-height: 92rpx;
+}
+.used_go{
+  width: 70rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  transform: rotateZ(345deg);
+  color: #E47036;
+  border-radius: 45rpx;
+  font-size: 20rpx;
+  font-weight: 600;
+  border: 4rpx solid #E47036;
+  position: relative;
+  top: -380rpx;
+  left: 520rpx;
+}
+.modal_delect{
+  color: #E15518;
+}

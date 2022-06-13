@@ -1,0 +1,26 @@
+<!--pages/finish/finish.wxml-->
+<view class="task_plan">
+      <view class="plan_key">
+        <view class="key_one"></view>
+        <view class="key_tow"></view>
+      </view>
+      <view class="task_sum">
+        <view class="task_sum_plan">
+          <text class="task_sum_text">700/1000</text>
+        </view>
+      </view>
+</view>
+<view class="getfinish">
+      <view class="getfinish_title">已领取能量</view>
+      <view class="getfinish_sum">30</view>
+</view>
+<view class="award">
+  <image class="awardimg" src="{{awardimg}}"></image>
+  <view class="award_title">恭喜</view>
+  <view class="award_bottom">
+    <view class="sum_one">3</view>
+    <view class="sum_tow">0</view>
+    <view class="sun_title">奖励能量</view>
+  </view>
+  <view class="goon">继续做任务</view>
+</view>

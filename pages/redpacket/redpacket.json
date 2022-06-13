@@ -7,7 +7,7 @@
     "pupop":"/components/pupop/pupop",
     "van-empty": "@vant/weapp/empty/index"
   },
-  "navigationBarTitleText": "红包",
+  "navigationBarTitleText": "劵商城",
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"
 }

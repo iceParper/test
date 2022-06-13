@@ -16,8 +16,8 @@ Page({
    */
   data: {
     pageBg: '../../image/bg.png', //页面背景
-    rouletteBgImg: '../../image/turntable.png', //轮盘图片
-    roundPointer: '../../image/pointer.png', //指针图片
+    // rouletteBgImg: '../../image/turntable(2).png', //轮盘图片
+    // roundPointer: '../../image/pointer.png', //指针图片
     animationData: '', //转盘滚动动画
     // random: '', //随机数
     // trasn: 0, //转的角度
@@ -300,6 +300,7 @@ Page({
           userId: this.data.lotteryInfoObj.userId,
           ticketNum: this.data.ticketNum,
           lotteryId: this.data.lotteryInfoObj.lotteryInfo.lotteryId,
+          shareId: options.query.share
           // inviterId: query.uid //邀请者ID
         }).then(res => {
           // console.log(res);
@@ -699,7 +700,7 @@ Page({
             // storeNo: this.data.storeNo
           }).then(res => {
             // console.log(res);
-            console.log(res.data.ticketNum);
+            // console.log(res.data.ticketNum);
             if (res.data.addTicketNum != 0) {
               this.setData({
                 ticketNum: res.data.ticketNum,

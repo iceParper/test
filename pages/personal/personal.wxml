@@ -25,6 +25,78 @@
       </view>
     </view>
   </view>
+  <!-- 核销 -->
+  <view class="check" bindtap="check">
+    <view class="search-go">
+     <view class="search-img">
+        <van-icon name="search" color="#D7D7D7" size="48rpx"></van-icon>
+     </view>
+     <view class="input" >核销</view>
+   </view>
+  </view>
+  <!-- 当前拥有 -->
+  <view class="nowhave" bindtap="mycatmoney">
+  <view class="title">当前拥有</view>
+  <view class="nowhave-conter">
+    <view class="text">{{catMoneyInfo.incomeNum}}</view>
+    <view class="bi">币</view>
+  </view>
+
+  <view class="nowhave-bottom">
+    <view class="nowhave-bottom-left">
+       <view class="sum">累计使用</view>
+       <view class="number">
+         <view class="text">{{catMoneyInfo.spendNum}}</view>
+         <view class="bi">
+           <text class="text">币</text></view>
+       </view>
+    </view>
+    <view class="hr"></view>
+    <view class="nowhave-bottom-right">
+      <view class="sum">累计节省</view>
+      <view class="number">￥{{catMoneyInfo.totalSaveNum}}</view>
+    </view>
+  </view>
+  </view>
+  <!-- 我的劵包 -->
+  <view class="redpacket">
+     <view class="title">我的劵包</view>
+     <view class="hr"></view>
+     <van-grid border="{{ false }}" clickable custom-class="grid">
+      <van-grid-item icon="coupon" text-class="text" text="全部" bindtap="goPacket" data-id="1" use-slot>
+        <button class="redpacket-btn" hover-class='none' data-pupop-id="1">
+          <view class="redpacket-content">
+            <image class="img" src="{{all}}" ></image>
+            <text class="text">全部</text>
+          </view>
+        </button>
+      </van-grid-item>
+      <van-grid-item icon="question-o" text-class="text" text="待使用" bindtap="goPacket" data-id="2" use-slot>
+        <button class="redpacket-btn" hover-class='none'>
+          <view class="redpacket-content">
+            <image class="img" src="{{gouse}}" ></image>
+            <text class="text">待使用</text>
+          </view>
+        </button>
+      </van-grid-item>
+      <van-grid-item icon="share-o" text-class="text" text="已使用" bindtap="goPacket" data-id="3" use-slot>
+        <button class="redpacket-btn" hover-class='none'>
+          <view class="redpacket-content">
+            <image class="img" src="{{used}}" ></image>
+            <text class="text">已使用</text>
+          </view>
+        </button>
+      </van-grid-item>
+      <van-grid-item icon="location-o" text-class="text" text="已过期" bindtap="goPacket" data-id="4" use-slot>
+        <button class="redpacket-btn" hover-class='none' data-pupop-id="4">
+          <view class="redpacket-content">
+            <image class="img" src="{{expired}}" ></image>
+            <text class="text">已过期</text>
+          </view>
+        </button>
+      </van-grid-item>
+    </van-grid>
+  </view>
   <!-- 系统服务 -->
   <view class="system">
     <view class="title">系统服务</view>
@@ -63,15 +135,6 @@
         </button>
       </van-grid-item>
     </van-grid>
-  </view>
-  <!--  店铺实拍 -->
-  <view class="shop">
-    <view class="title">店铺实拍</view>
-    <view class="image">
-      <block wx:for="{{imageList}}" wx:key="*this">
-        <image src="{{item}}" data-src="{{item}}" bindtap="dopreviewImg" lazy-load="true"></image>
-      </block>
-    </view>
   </view>
 </view>
 <!-- 弹框 -->

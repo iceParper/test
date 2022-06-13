@@ -1,0 +1,44 @@
+<view class="shopmall">
+<view class="main">
+<!-- 搜索 -->
+  <view class="search">
+  <view>
+    <image class="search-img" src="{{search}}"></image>
+  </view>
+  <view class="search-title">
+    <text>搜索</text>
+  </view>
+  </view>
+  <!-- 瀑布流图 -->
+  <view class="left">
+    <block wx:for="{{note}}" wx:key="">
+      <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+   </block>
+  </view>
+  <view class="right">
+        <block wx:for="{{note}}" wx:key="">
+          <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+        </block>
+  </view>
+  <!-- 悬浮按钮 -->
+  <view class="bottom" style="opacity: {{0.9}};">
+    <view class="stick">
+    <image class="img" src="{{stick}}" ></image>
+    </view>
+    <view class="task" >
+      <image class="img" src="{{task}}" ></image>
+    </view>
+    <view class="packet">
+      <image class="img" src="{{packet}}" ></image></view>
+  </view>
+</view>
+<template name="item">
+  <view class="item">
+    <image class="item-img" src="{{url}}" mode="widthFix"></image>
+    <view class="name">
+      <view class="name-coupon">{{coupon}}</view>  
+      <view class="name-title">{{name}}</view>
+      </view>
+  </view>
+</template>
+</view>

@@ -1,136 +1,70 @@
-<wxs module="filter" src="../../filter/dateFr.wxs" />
-<view class="container">
-  <view class="tab">
-    <van-tabs type="card" color="#F2AB0B" sticky>
-      <van-tab title="未使用" title-style="tab-title">
-        <!-- 主内容 -->
-        <view class="tab-container">
-          <block wx:if="{{isNotUsed == false}}">
-            <van-empty description="暂无数据" />
-          </block>
-          <block wx:else>
-            <block wx:for="{{redpacketList}}" wx:key="index">
-              <block wx:if="{{item.status == 1}}">
-                <view class="tab-panel">
-                  <van-panel title="{{item.storeName}}" status="{{filter.doSubtringTime(item.winAt)}}获得">
-                    <view class="tab-content">{{ item.awardDisplay}}
-                      <view class="tab-icon" bindtap="doIconShow" data-index="{{index}}">
-                        <image src="../../image/icon-2.png" />
-                      </view>
-                    </view>
-                    <view class="tab-footer">
-                      <view class="tab-footer-text">
-                        有效期截止 {{filter.doSubtringTime(item.writeoffEndAt)}}
-                      </view>
-                      <van-button plain hairline color="#F2AB0B" size="small" bindtap="showPupop"
-                        data-index="{{index}}">
-                        立即使用</van-button>
-                    </view>
-                  </van-panel>
-                </view>
-              </block>
-            </block>
-          </block>
+<view class="shopmall">
+<view class="main">
+<!-- 搜索 -->
+  <view class="search">
+    <button bindtap="gosearch" class="gosearch" hover-class='none' >
+      <image class="search-img" src="{{search}}"></image>
+    <text class="search-title">搜索</text>
+  </button>
+  </view>
+  <!-- 瀑布流图 -->
+   <!-- 瀑布流图 -->
+   <view class="left" >
+    <block wx:for="{{cardList}}" wx:key="index" >
+      <template is="item" data="{{...item}}" wx:if="{{index%2==1}}" ></template>
+      <view wx:if="{{index % 7 == 0 && index > 10 }}">
+        <view  wx:for="{{naviList}}" wx:key="fallCardId" data-id="{{item.fallCardId}}" bindtap="fallCarddetails">
+          <view class="navigation">
+              <text class="navigation-title">{{item.fallCardName}}</text>
+          </view>
         </view>
-      </van-tab>
-      <van-tab title="已使用" title-style="tab-title">
-        <!-- 主内容 -->
-        <view class="tab-container">
-          <block wx:if="{{isUsed == false}}">
-            <van-empty description="暂无数据" />
-          </block>
-          <block wx:else>
-            <block wx:for="{{redpacketList}}" wx:key="index">
-              <block wx:if="{{item.status == 2}}">
-                <view class="tab-panel">
-                  <van-panel title="{{item.storeName}}" status="{{filter.doSubtringTime(item.winAt)}}获得">
-                    <view class="tab-content active"> {{ item.awardDisplay}}
-                      <view class="tab-icon" bindtap="doIconShow" data-index="{{index}}">
-                        <image src="../../image/icon-2.png" />
-                      </view>
-                    </view>
-                    <view class="tab-footer">
-                      <view class="tab-footer-text">
-                        有效期截止 {{filter.doSubtringTime(item.writeoffEndAt)}}
-                        <span>已使用</span>
-                      </view>
-                    </view>
-                  </van-panel>
-                </view>
-              </block>
-            </block>
-          </block>
-        </view>
-      </van-tab>
-      <van-tab title="已过期" title-style="tab-title">
-        <!-- 主内容 -->
-        <view class="tab-container">
-          <block wx:if="{{isExpired == false}}">
-            <van-empty description="暂无数据" />
-          </block>
-          <block wx:else>
-            <block wx:for="{{redpacketList}}" wx:key="index">
-              <block wx:if="{{item.status == 3}}" data-emptyshow3="{{item.status}}">
-                <view class="tab-panel">
-                  <van-panel title="{{item.storeName}}" status="{{filter.doSubtringTime(item.winAt)}}获得">
-                    <view class="tab-content active line-through"> {{ item.awardDisplay}}
-                      <view class="tab-icon" bindtap="doIconShow" data-index="{{index}}">
-                        <image src="../../image/icon-2.png" />
-                      </view>
-                    </view>
-                    <view class="tab-footer">
-                      <view class="tab-footer-text">
-                        有效期截止{{filter.doSubtringTime(item.writeoffEndAt)}}
-                        <span>已过期</span>
-                      </view>
-                    </view>
-                  </van-panel>
-                </view>
-              </block>
-            </block>
-          </block>
-        </view>
-      </van-tab>
-    </van-tabs>
+      </view>
+   </block>
+  </view>
+  <view class="right" >
+        <block wx:for="{{cardList}}" wx:key="index" >
+          <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+          <view wx:if="{{index % 5 == 0 && index % 7 == 2}}">
+            <view  wx:for="{{naviList}}" wx:key="fallCardId" bindtap="fallCarddetails">
+              <view class="navigation">
+                  <text class="navigation-title">{{item.fallCardName}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+  </view>
+  <!-- 悬浮按钮 -->
+  <view class="bottom" style="opacity: {{0.9}};">
+    <view class="stick" bindtap="gotop">
+    <image class="img" src="{{stick}}" ></image>
+    </view>
+    <view class="task" bindtap="gototask">
+      <image class="img" src="{{task}}" ></image>
+    </view>
+    <view class="packet" bindtap="mypacket">
+      <image class="img" src="{{packet}}" ></image></view>
   </view>
 </view>
-<!-- 立即使用弹框 -->
-<pupop id="pupop" title="喵市积分红包" btn_ok="确认" bind:success="_btnok" bind:error="_error">
-  <view class="pupop-item">
-    <view class="doller">{{awardDisplay}}</view>
-    <view class="tip-text">
-      <text>购物时{{awardDescription}}</text>
-      <text>兑奖店铺：{{storeName}}</text>
-    </view>
-    <view class="code">
-      <!-- 条形码 -->
-      <canvas canvas-id="barcode"></canvas>
-    </view>
-    <view class="number">{{awardBarNo}}</view>
+<template name="item">
+  <view class="item" bindtap="coupondetails" data-id="{{couponTicketId}}">
+    <image class="item-img" wx:if="{{fallCardCover}}" src="{{fallCardCover}}" mode="aspectFill"></image>
+    <view class="name">
+      <view class="name-coupon"><text>{{fallCardName}}</text></view>  
+      <view class="name-title"><text>{{commericalName}}</text></view>
+      </view>
   </view>
-</pupop>
-<!-- 小问号弹窗 -->
-<view class="icon-popup bg" hidden="{{iconShow}}" catchtouchmove="true">
-  <view class="icon-container">
-    <view class="pupop-content">
-      <view class="header">
-        <view class="title">喵市王国</view>
-        <view class="hr"></view>
-        <view class="close" bindtap="doIconHidden">
-          <image src="../../image/close.png"></image>
-        </view>
-      </view>
-      <view class="section">
-        <text>
-          购物时{{awardDescription}}
-          兑奖店铺：{{storeName}}
-        </text>
-      </view>
-      <view class="footer">
-        <view class="btn" bindtap="doIconHidden">
-          <van-button block color="#F2AB0B">确定</van-button>
-        </view>
-      </view>
+</template>
+<template name="gototask">
+  <view class="gototask">
+     <view class="dotask">
+       <text>{{dotask}}</text>
+     </view>
+     <view class="goshare">
+       <text>{{goshare}}</text>
+     </view>
+     <view class="acquire">
+       <text>{{acquire}}</text> 
     </view>
   </view>
+</template>
 </view>

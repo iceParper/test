@@ -1,0 +1,24 @@
+function taskStatus(data){
+    return data === 'tocomplete' ? '去完成' : (data === 'receive'?'领取':'已完成')
+}
+function taskType(data){
+    var taskName = "";
+      if (value == '0') {
+        taskName = "每日登录";
+      } else if (value == '1') {
+        taskName = "浏览 [券商城 ]30s";
+      } else if (value == '2') {
+        taskName = "分享给朋友逛一逛";
+      } else if (value == '3') {
+        taskName = "分享到50人及以上群聊";
+      } else if (value == '4') {
+        taskName = "被分享者参与抽奖";
+      } else {
+        taskName = "去[券商城]购物";
+      }
+      return taskName;
+}
+module.exports = {
+    taskStatus:taskStatus,
+    taskType:taskType
+}

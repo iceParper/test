@@ -1,8 +1,26 @@
 {
-  "pages":[
+  "pages":[ 
     "pages/index/index",
+    "pages/checkticketed/checkticketed",
+    "pages/personal/personal",  
+    "pages/checkexpired/checkexpired",
+    "pages/paysuccess/paysuccess",
+    "pages/checkticket/checkticket",
+    "pages/checkused/checkused", 
+    "pages/check/check",    
+    "pages/checkdetails/checkdetails",  
+    "pages/mypacket/mypacket",   
+    "pages/expired/expired",   
+    "pages/used/used",   
+    "pages/footerrules/footerrules",
+    "pages/finish/finish",   
+    "pages/task/task",
     "pages/redpacket/redpacket",
-    "pages/personal/personal",
+    "pages/coupondetails/coupondetails",
+    "pages/order/order",
+    "pages/shopdetail/shopdetail",
+    "pages/gosearch/gosearch",
+    "pages/mycatmoney/mycatmoney",
     "pages/helpcenter/helpcenter"
   ], 
   "usingComponents": {
@@ -29,7 +47,7 @@
         "pagePath": "pages/redpacket/redpacket",
         "iconPath": "image/redpacket.png",
         "selectedIconPath": "image/redpacket(1).png",
-        "text": "红包"
+        "text": "劵商城"
       },
       {
         "pagePath": "pages/personal/personal",

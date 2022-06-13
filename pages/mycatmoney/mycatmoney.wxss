@@ -1,0 +1,150 @@
+/* pages/mycatmoney/mycatmoney.wxss */
+page {
+  background-color:#F4F5F4;
+}
+.mycat_top{
+  width: 750rpx;
+  height: 330rpx;
+  background-color: #F2AB0B;
+}
+.top_money{
+  width: 750rpx;
+  height: 190rpx;
+  margin-left: 140rpx;
+  display: flex;
+}
+.now_text{
+  margin-top: 122rpx;
+  color: rgba(255, 255, 255, 41);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.now_money{
+  margin-top: 65rpx;
+  line-height: 96rpx;
+  margin-left: 12rpx;
+  color: rgba(255, 255, 255, 100);
+  font-size: 96rpx;
+  text-align: left;
+  font-family: PingFangSC-semiBold;
+}
+.cat_bi{
+  margin-top:120rpx;
+  margin-left: 4rpx;
+  width: 28rpx;
+  height: 28rpx;
+  color: #FFFFFF;
+  font-size: 20rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid #FFFFFF;
+}
+.cat_bi .text{
+  position: relative;
+  top: 0rpx;
+  left: 4rpx;
+}
+.hr{
+  width: 750rpx;
+  height: 1rpx;
+  background-color: #FDFDFD;
+}
+.now_bottom{
+  width: 750rpx;
+  display: flex;
+}
+.top_expend{
+  width: 33%;
+}
+ .top_income{
+  width: 33%;
+}
+.top_past{
+  width: 33%;
+}
+.bottom_hr{
+  width: 1rpx;
+  height: 138rpx;
+  background-color: #FFFFFF;
+}
+.top_expend_text, .top_income_text, .top_past_text{
+  color: rgba(255, 255, 255, 41);
+  font-size: 28rpx;
+  margin-top: 28rpx;
+  text-align: center;
+  font-family: PingFangSC-regular;
+}
+.top_expend_sum, .top_income_sum, .top_past_sum{
+  color: rgba(255, 255, 255, 100);
+  font-size: 28rpx;
+  margin-top: 12rpx;
+  text-align: center;
+  font-family: PingFangSC-regular;
+}
+.mycat_bottom{
+  width: 750rpx;
+  margin-top: 12rpx;
+  margin-bottom: 200rpx;
+  background-color: #FFFFFF;
+}
+.bottom_title{
+  width: 750rpx;
+  height: 80rpx;
+  display: flex;
+  text-align: center;
+}
+.title_one, .title_tow, .title_three{
+  width: 33%;
+  line-height: 80rpx;
+}
+.current {
+  color: rgba(155, 155, 155, 100);
+  font-size: 34rpx;
+  font-weight: 600;
+  font-family: PingFangSC-bold;
+}
+.unCurrent {
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  opacity: 0.8;
+}
+.footer_hr{
+  width: 702rpx;
+  height: 1rpx;
+  margin: 0rpx 24rpx;
+  background-color: #F4F4F4;
+}
+.mycat_one{
+  width: 750rpx;
+  height: 130rpx;
+  display: flex;
+}
+.one{
+  width: 80%;
+}
+.one_time{
+  margin-top: 24rpx;
+  margin-left: 24rpx;
+  color: rgba(190, 190, 190, 100);
+  font-size: 20rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.one_title{
+  margin-top: 12rpx;
+  margin-left: 24rpx;
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.one_sum{
+  margin-top: 40rpx;
+  margin-right: 24rpx;
+  width: 19%;
+  color: rgba(16, 16, 16, 100);
+  font-size: 40rpx;
+  text-align: right;
+  font-family: PingFangSC-regular;
+}

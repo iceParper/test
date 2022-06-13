@@ -1,0 +1,11 @@
+<view class="modal_mask" wx:if='{{show}}' bindtap="clickMask" >
+  <view class="modal_content">
+    <scroll-view scroll-y class="main_content">
+      <slot></slot>
+    </scroll-view>
+    <view class="modal_footer">
+      <view wx:if="{{!single}}" class="cancel_btn" bindtap="cancel">否</view>
+      <view class="confirm_btn" bindtap="confirm">是</view>
+    </view>
+  </view>
+</view>

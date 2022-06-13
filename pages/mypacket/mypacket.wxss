@@ -1,0 +1,363 @@
+/* pages/mypacket/mypacket.wxss */
+page {
+  background-color:#F4F5F4;
+}
+.mypacket_title{ 
+  width: 750rpx;
+  height: 100rpx;
+  background-color: #FFFFFF;
+  display: flex;
+  text-align: center;
+}
+.all{
+  width: 25%;
+  line-height: 100rpx;
+  color: rgba(228, 112, 54, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.gouse{
+  width: 24%;
+  line-height: 100rpx;
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.on {
+  width: 25%;
+  line-height: 100rpx;
+  color: rgba(228, 112, 54, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.off {
+  width: 24%;
+  line-height: 100rpx;
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  opacity: 0.8;
+  font-family: PingFangSC-regular;
+}
+.used{
+  width: 25%;
+  line-height: 100rpx;
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.expired{
+  width: 24%;
+  line-height: 100rpx;
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.bottom_one{
+  margin-top: 24rpx;
+  width: 750rpx;
+  height: 308rpx;
+  background-color: #FFFFFF;
+  margin-top: -10rpx;
+}
+.top_title{
+  margin-top: 24rpx;
+  padding-top: 12rpx;
+  width: 100%;
+  height: 40rpx;
+  margin-left: 24rpx;
+  display: flex;
+}
+.title_img{
+  width: 34rpx;
+  height: 34rpx;
+}
+.title_text{
+  color: #101010;
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 8rpx;
+  font-family: PingFangSC-regular;
+}
+/* .coupon{
+  width: 702rpx;
+  height: 220rpx;
+  margin: 0rpx 24rpx;
+  background-color: rgba(255, 255, 255, 100);
+  color: rgba(16, 16, 16, 100);
+  font-family: Arial;
+  border: 1rpx solid rgba(228, 112, 54, 100); 
+  display: flex; 
+} */
+.money{
+  width: 498rpx;
+  border-right-style: dotted;
+  border-right-color: #E47036;
+}
+.money_title{
+  height: 40rpx;
+  padding: 10rpx;
+  line-height: 40rpx;
+  margin-left: 30rpx;
+  color: rgba(190, 190, 190, 100);
+  font-size: 20rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.money_main{
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+}
+.money_sum{
+  font-size: 96rpx;
+  color: rgba(228, 112, 54, 100);
+  text-align: left;
+  line-height: 100rpx;
+  padding-left: 44rpx;
+  font-family: 方正工业黑-标准;
+  font-weight: 900;
+}
+
+.money_type{
+  color: rgba(190, 190, 190, 100);
+  font-size: 20rpx;
+  line-height: 20rpx;
+  text-align: left;
+  margin-top: 40rpx;
+  margin-left: 12rpx;
+  font-family: PingFangSC-regular;
+}
+.money_condition{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  line-height: 30rpx;
+  margin-top: 12rpx;
+  margin-left: 12rpx;
+  font-family: PingFangSC-regular;
+}
+.gobuy{
+  width: 202rpx !important;
+  height: 220rpx;
+  background-color: #E47036;
+  text-align: center;
+}
+.gobuy_goto{
+  margin-top: 10rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  line-height: 220rpx;
+  font-family: PingFangSC-bold;
+}
+
+.bottom_used{
+  margin-top: 24rpx;
+  width: 750rpx;
+  height: 308rpx;
+  background-color: #FFFFFF;
+  margin-top: -10rpx;
+}
+.top_title{
+  margin-top: 24rpx;
+  padding-top: 12rpx;
+  width: 100%;
+  height: 40rpx;
+  margin-left: 24rpx;
+  display: flex;
+}
+.title_img{
+  width: 34rpx;
+  height: 34rpx;
+}
+.title_text{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 8rpx;
+  font-family: PingFangSC-regular;
+}
+.money_used{
+  width: 498rpx;
+  border-right-style: dotted;
+  border-right-color:#D5D5D5;
+}
+.used_money_title{
+  height: 40rpx;
+  padding: 10rpx;
+  line-height: 40rpx;
+  margin-left: 30rpx;
+  color: #D5D5D5;
+  font-size: 20rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.used_money_main{
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+}
+.used_money_sum{
+  font-size: 96rpx;
+  color: #D5D5D5;
+  text-align: left;
+  line-height: 100rpx;
+  padding-left: 44rpx;
+  font-family: 方正工业黑-标准;
+  font-weight: 900;
+}
+.used_money_type{
+  color: #D5D5D5;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  text-align: left;
+  margin-top: 40rpx;
+  margin-left: 12rpx;
+  font-family: PingFangSC-regular;
+}
+.used_money_condition{
+  color: #D5D5D5;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  margin-top: 12rpx;
+  margin-left: 12rpx;
+  font-family: PingFangSC-regular;
+}
+.gobuy_used{
+  width: 204rpx;
+  text-align: center;
+  background-color: #D5D5D5;
+}
+.gobuy_goto_used{
+  margin-top: 10rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  line-height: 220rpx;
+  font-family: PingFangSC-bold;
+}
+.used_go{
+  width: 70rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  transform: rotateZ(345deg);
+  color: #E47036;
+  border-radius: 45rpx;
+  font-size: 20rpx;
+  font-weight: 600;
+  border: 4rpx solid rgba(228, 112, 54, 73);
+  position: relative;
+  top: -140rpx;
+  left: 480rpx;
+}
+
+.bottom_expired{
+  margin-top: 24rpx;
+  width: 750rpx;
+  height: 308rpx;
+  background-color: #FFFFFF;
+  margin-top: -10rpx;
+}
+.top_title{
+  margin-top: 24rpx;
+  padding-top: 12rpx;
+  width: 100%;
+  height: 40rpx;
+  margin-left: 24rpx;
+  display: flex;
+}
+.title_img{
+  width: 34rpx;
+  height: 34rpx;
+}
+.title_text{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 8rpx;
+  font-family: PingFangSC-regular;
+}
+.coupon{
+  width: 702rpx;
+  height: 220rpx;
+  margin: 0rpx 24rpx;
+  background-color: rgba(255, 255, 255, 100);
+  color: rgba(16, 16, 16, 100);
+  font-family: Arial;
+  border: 1rpx solid #D5D5D5; 
+  display: flex; 
+}
+.money_expired{
+  width: 498rpx;
+  border-right-style: dotted;
+  border-right-color:#D5D5D5;
+}
+.expired_money_title{
+  height: 40rpx;
+  padding: 10rpx;
+  line-height: 40rpx;
+  margin-left: 30rpx;
+  color: #D5D5D5;
+  font-size: 20rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.expired_money_main{
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+}
+.expired_money_sum{
+  font-size: 96rpx;
+  color: #D5D5D5;
+  text-align: left;
+  line-height: 100rpx;
+  padding-left: 44rpx;
+  font-family: 方正工业黑-标准;
+  font-weight: 900;
+}
+.expired_money_type{
+  color: #D5D5D5;
+  font-size: 20rpx;
+  line-height: 20rpx;
+  text-align: left;
+  margin-top: 40rpx;
+  margin-left: 12rpx;
+  font-family: PingFangSC-regular;
+}
+.expired_money_condition{
+  color: #D5D5D5;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  margin-top: 12rpx;
+  margin-left: 12rpx;
+  font-family: PingFangSC-regular;
+}
+.gobuy_expired{
+  width: 204rpx;
+  text-align: center;
+  background-color: #D5D5D5;
+}
+.gobuy_goto_expired{
+  margin-top: 10rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  line-height: 220rpx;
+  font-family: PingFangSC-bold;
+}
+.expired_go{
+  width: 70rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  transform: rotateZ(345deg);
+  color: #9D9D9D;
+  border-radius: 45rpx;
+  font-size: 20rpx;
+  font-weight: 600;
+  border: 4rpx solid #9D9D9D;
+  position: relative;
+  top: -140rpx;
+  left: 480rpx;
+}

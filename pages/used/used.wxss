@@ -1,0 +1,234 @@
+/* pages/used/used.wxss */
+@import "../footerrules/footerrules.wxss";
+page {
+  background-color:#F4F5F4;
+}
+.order{
+  width: 750rpx;
+}
+.userecord{
+  width: 750rpx;
+  height: 280rpx;
+  background-color: #FFFFFF;
+  margin: 12rpx 0rpx;
+}
+.use_record_title{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin: 0rpx 24rpx;
+  padding: 12rpx 0rpx;
+  font-weight: 600;
+  font-family: PingFangSC-bold;
+}
+.use_record_buysum, .use_record_cheapsum, .use_record_paysum, .use_record_time{
+  display: flex;
+  margin: 12rpx 24rpx;
+}
+.buysum_title, .cheapsum_title, .paysum_title, .time_title{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.buysum_sum, .cheapsum_sum, .paysum_sum, .time_sum{
+  margin-left: 24rpx;
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.order_top{
+  width: 100%;
+  height: 648rpx;
+  margin: 12rpx 0rpx;
+  background-color: #FFFFFF;
+}
+.top_title{
+  width: 100%;
+  height: 60rpx;
+  margin-left: 24rpx;
+  display: flex;
+}
+.title_img{
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 20rpx;
+}
+.money_sum{
+  color: #BEBEBE;
+  font-size: 44rpx;
+  text-align: left;
+  margin-top: 14rpx;
+  font-weight: 500;
+  font-family: PingFangSC-regular;
+}
+.money_condition{
+  color: #BEBEBE;
+  font-size: 28rpx;
+  margin: 8rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.money_indare{
+  color: #BEBEBE;
+  font-size: 28rpx;
+  margin: 8rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.money_title{
+  width: 100%;
+  height: 39rpx;
+  margin: 24rpx 0rpx 24rpx 24rpx;
+  display: flex;
+}
+.scancodes{
+  width: 100%;
+  margin: 58rpx 0rpx;
+}
+.switch{
+  height: 40rpx;
+  margin: 12rpx 312rpx;
+  display: flex;
+}
+.switch_img{
+  width: 32rpx;
+  height: 32rpx;
+  margin-top: 4rpx;
+}
+.switch_title{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.scancodesimg{
+  width: 298rpx;
+  height: 298rpx;
+  margin: 0rpx 226rpx;
+}
+.scancodes_sum{
+  width: 348rpx;
+  height: 40rpx;
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  margin: 24rpx 201rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.goshopping{
+  width: 100%;
+  height: 80rpx;
+  background-color: #FFFFFF;
+  padding-left: 24rpx;
+  display: flex;
+}
+.shopping_title{
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  text-align: left;
+  line-height: 80rpx;
+  font-family: PingFangSC-bold;
+}
+.chevronright{
+  position: relative;
+  top: 22rpx;
+  left: 520rpx;
+}
+.footer{
+  width: 100%;
+  background-color: #FFFFFF;
+  margin-top: 12rpx;
+}
+.indare, .rule, .notice{
+  width: 702rpx;
+  padding: 6rpx 24rpx;
+}
+.indare_title, .rule_title, .notice_title{
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-weight: 600;
+  font-family: PingFangSC-bold;
+}
+.indare_time, .indare_day, .rule_one, .rule_tow, .notice_one, .notice_tow{
+  color: rgba(40, 40, 40, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin: 12rpx 0rpx 12rpx 28rpx;
+}
+.indare_time>text, .indare_day>text{
+  font-weight: 600;
+}
+.rule_one>text, .rule_tow>text{
+  font-weight: 600;
+}
+.notice_one>text, .notice_tow>text{
+  font-weight: 600;
+}
+.payment{
+  width: 100%;
+  height: 80rpx;
+  margin: 12rpx 0rpx;
+  display: flex;
+  line-height: 80rpx;
+  background-color: #FFFFFF;
+}
+.payment_title{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.payment_sum{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 48rpx;
+  font-family: PingFangSC-regular;
+}
+.ordernumber{
+  width: 100%;
+  height: 132rpx;
+  margin: 12rpx 0rpx 48rpx 0rpx;
+  line-height: 80rpx;
+  background-color: #FFFFFF;
+}
+.order_number, .order_time{
+  width: 100%;
+  height: 65rpx;
+  display: flex;
+  line-height: 65rpx;
+}
+.ordernumber_title, .ordertime_title{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 24rpx;
+  font-family: PingFangSC-regular;
+}
+.ordernumber_sum, .ordertime_sum{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 48rpx;
+  font-family: PingFangSC-regular;
+}
+.goused{
+  width: 130rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  text-align: center;
+  transform: rotateZ(345deg);
+  color: #E47036;
+  border-radius: 65rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  border: 4rpx solid #E47036;
+  position: relative;
+  top: -340rpx;
+  left: 420rpx;
+}

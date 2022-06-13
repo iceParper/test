@@ -1,0 +1,54 @@
+/* 遮罩层 */
+.modal_mask{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(149, 149, 149, 0.38);
+  z-index: 99999;
+}
+/* 遮罩部分 */
+.modal_content{
+  display: flex;
+  flex-direction: column;
+  width: 610rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+/* 中间部分 */
+.main_content{
+  flex: 1;
+  height: 180rpx;
+  line-height: 180rpx;
+  overflow-y: hidden;
+  max-height: 100vh;
+}
+/* 底部按钮 */
+.modal_footer{
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-top: 2rpx solid #F0F0F0;
+  margin-top: 30rpx;
+}
+.cancel_btn, .confirm_btn{
+  flex: 1;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+}
+.cancel_btn{
+  color: #000;
+  border-right: 2rpx solid #F0F0F0;
+}
+.confirm_btn{
+  color: #576B95;
+}

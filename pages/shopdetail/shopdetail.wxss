@@ -1,0 +1,126 @@
+/* pages/shopdetail/shopdetail.wxss */
+page {
+  background-color:#F4F5F4;
+}
+.topimg{
+  width: 100%;
+  border-radius: 0rpx !important;
+}
+.img{
+  width: 750rpx;
+  height: 750rpx;
+}
+.bottom{
+  width: 100%;
+  height: 250rpx;
+  background-color: #FFFFFF;
+  margin-top: -10rpx;
+}
+.details_title{
+  padding: 12rpx 0rpx 12rpx 24rpx;
+  font-size: 34rpx;
+  color: #101010 100%;
+}
+.shopdetails{
+  width: 100%;
+  padding-left: 24rpx;
+}
+.shoptime, .shopsite{
+  height: 40rpx;
+  font-size: 28rpx;
+  margin: 12rpx 0rpx;
+  color: #BEBEBE;
+  line-height: 34rpx;
+}
+.shopphone{
+  height: 40rpx;
+  font-size: 28rpx;
+  margin: 12rpx 0rpx;
+  color: #576B95;
+  line-height: 34rpx;
+}
+.shoptime .time_img{
+  width: 34rpx;
+  height: 34rpx;
+  position: relative;
+  top: 6rpx;
+}
+.shoptime>text, .shopsite>text, .shopphone>text{
+  margin-left: 16rpx;
+}
+.footer{
+  width: 702rpx;
+  padding-top: 48rpx;
+  text-align: center;
+  margin: 0rpx 24rpx;
+}
+.footer_title{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  text-align: left;
+  margin-left: 24rpx;
+  font-family: PingFangSC-regular;
+}
+/* 瀑布流图  */
+.left, .right{
+  display: inline-block;
+  vertical-align: top;
+  width: 339rpx;
+}
+.left{
+  padding-top: 24rpx;
+  margin-left: 24rpx;
+}
+.right{
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+  margin-right: 24rpx;
+  float:right;
+  /* margin-right: 24rpx; */
+}
+.item{
+  width: 100%;
+  height: 498rpx;
+  margin-bottom: 24rpx;
+  display: inline-block;
+  border-radius: 15rpx;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+}
+.item .name{
+  margin-top: -10rpx;
+  height: 162rpx;
+  align-items: center;
+  background-color:#FFFFFF;
+  border-radius: 0rpx 0rpx 15rpx 15rpx;
+}
+.name-coupon{
+  margin-left: 24rpx;
+  padding-top: 24rpx;
+  color: rgba(16, 16, 16, 100);
+  font-size: 34rpx;
+  text-align: left;
+  font-weight: 600;
+  font-family: PingFangSC-semiBold;
+}
+.name-coupon>text, .name-title>text{
+  text-overflow:ellipsis; 
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;  /*限制显示文本行数 */
+  -webkit-box-orient: vertical;   /*垂直排列 */
+}
+.name-title{
+  margin-left: 24rpx;
+  margin-top: 24rpx;
+  height: 40rpx;
+  color: rgba(138, 138, 138, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  text-overflow:ellipsis; 
+}
+.item-img{
+  width: 100%;
+  border-radius: 15rpx 15rpx 0rpx 0rpx;
+}

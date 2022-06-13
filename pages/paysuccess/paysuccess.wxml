@@ -1,0 +1,68 @@
+<!--pages/paysuccess/paysuccess.wxml-->
+<wxs module="filterTicket" src="../check/check.wxs"></wxs>
+<!--pages/order/order.wxml-->
+<view class="order">
+  <view class="order_top">
+    <view class="top_title">
+      <image class="title_img" src="{{packetimg}}"></image>
+      <view class="money_sum">{{couponInfo.couponTicket.couponTicketShow}}{{filterTicket(couponInfo.couponTicket.ticketCategoryType)}}</view>
+    </view>
+    <view class="money_title">
+       <view class="money_condition">{{couponInfo.couponTicket.couponTicketShowAssociation}}</view>
+      <view class="money_indare">有效期至 {{couponList[0].finalUseTime}}</view>
+    </view>
+    <view class="scancodes">
+      <view class="switch" bindtap="handleSwitch">
+        <image class="switch_img" src="{{switchimg}}"></image>
+        <view class="switch_title">条形码</view>
+      </view>
+      <!-- <image class="scancodesimg" src="{{scancodesimg}}"></image> -->
+      <canvas class="scancodesimg" canvas-id="qrcode" wx:if="{{switchNo == 1}}"/>
+      <canvas class="scancodesimg" canvas-id="barcode" wx:else/>
+      <view class="scancodes_sum" wx:for="{{couponList}}" wx:key="index">{{item.barCodeNo}}</view>
+    </view>
+  </view>
+  <view class="goshopping" bindtap="shopdetail">
+   <view class="shopping_title">{{couponInfo.commerical.commericalName}}</view> 
+  <view class="chevronright">
+  <van-icon name="arrow" color="#8a8a8a" size="32rpx" /></view>
+  </view>
+  <import src="../footerrules/footerrules"></import>
+<template is="footerrules"></template>
+  <button class="payment" bindtap="showPupop">
+      <view class="payment_title">实 付 款</view>
+      <view class="payment_sum">￥{{orderInfo.money}}+{{orderInfo.catMoney}}喵币</view>
+  </button>
+  <view class="ordernumber">
+    <view class="order_number">
+    <view class="ordernumber_title">订单编号</view>
+    <view class="ordernumber_sum">{{orderInfo.orderNo}}</view>
+    </view>
+    <view class="order_time">
+   <view class="ordertime_title">下单时间</view>
+   <view class="ordertime_sum">{{orderInfo.createTime}}</view>
+  </view>
+  </view>
+</view>
+<!-- 弹框 -->
+<pupop id="pupop" title="{{pupopTitle}}" btn_ok="{{pupopBtnText}}" bind:success="_success" bind:error="_error">
+  <!-- 还需支付 -->
+  <block wx:for="{{isClickItem}}" wx:key="index">
+    <view class="pupop_pay">
+      <view class="pupop_item">
+        <view>￥755.4</view>
+      </view>
+      <view class="pay_content">
+        <view class="pay_life">
+          <view class="pay_life_text">本次消费</view>
+          <view class="pay_life_sum">￥888.88</view>
+        </view>
+        <view class="pay_hr" style="opacity: 0.1;"></view>
+        <view class="pay_right">
+          <view class="pay_right_text">为您节省</view>
+          <view class="pay_right_sum">￥233.4</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</pupop>

@@ -1,0 +1,152 @@
+/* pages/coupondetails/coupondetails.wxss */
+@import "../footerrules/footerrules.wxss";
+page {
+  background-color:#F4F5F4;
+}
+.topimg{
+  width: 100%;
+  border-radius: 0rpx !important;
+}
+.img{
+  width: 750rpx;
+  height: 750rpx;
+}
+.bottom{
+  width: 100%;
+  height: 680rpx;
+  background-color: #FFFFFF;
+  margin-top: -10rpx;
+}
+.details_title{
+  padding: 12rpx 0rpx 12rpx 24rpx;
+  font-size: 34rpx;
+  color: #101010 100%;
+}
+.coupon{
+  width: 702rpx;
+  height: 220rpx;
+  margin: 0rpx 24rpx;
+  background-color: rgba(255, 255, 255, 100);
+  color: rgba(16, 16, 16, 100);
+  text-align: center;
+  font-family: Arial;
+  border: 1rpx solid rgba(228, 112, 54, 100); 
+  display: flex; 
+}
+.money{
+  width: 498rpx ;
+  border-right-style: dotted;
+  border-right-color: #E47036;
+  line-height: 220rpx;
+  text-align: center;
+}
+.money_sum{
+  font-size: 96rpx;
+  color: rgba(228, 112, 54, 100);
+  text-align: left;
+  font-family: 方正工业黑-标准;
+  font-weight: 900;
+}
+.money_condition{
+  color: rgba(190, 190, 190, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+}
+.gobuy{
+  width: 202rpx !important;
+  height: 220rpx;
+  background-color: #E47036;
+  align-items: center;
+}
+.gobuy_sum{
+  color: rgba(255, 255, 255, 100);
+  font-size: 34rpx;
+  text-align: left;
+  margin-top: 74rpx;
+  margin-left: 42rpx;
+  font-family: PingFangSC-bold;
+  display: flex;
+}
+.gobuy_goto{
+  margin-top: 10rpx;
+  font-weight: 600;
+  color: #EEA580;
+  font-size: 24rpx;
+  font-family: PingFangSC-bold;
+}
+.gobuy_sum .bi{
+  margin-top: 8rpx;
+  margin-left: 4rpx;
+  width: 22rpx;
+  height: 22rpx;
+  color: rgba(255, 255, 255, 100);
+  font-size: 17rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid rgba(255, 255, 255, 100);
+}
+.gobuy_sum .bi .text{
+  position: relative;
+  left: 2rpx;
+}
+.shopdetails{
+  width: 100%;
+  padding-left: 24rpx;
+}
+.shoptime, .shopsite{
+  height: 40rpx;
+  font-size: 28rpx;
+  margin: 12rpx 0rpx;
+  color: #BEBEBE;
+  line-height: 34rpx;
+}
+.shopphone{
+  height: 40rpx;
+  font-size: 28rpx;
+  margin: 12rpx 0rpx;
+  color: #576B95;
+  line-height: 34rpx;
+}
+.shoptime .time_img{
+  width: 34rpx;
+  height: 34rpx;
+  position: relative;
+  top: 6rpx;
+}
+.shoptime>text, .shopsite>text, .shopphone>text{
+  margin-left: 16rpx;
+}
+.shop_footer{
+  width: 702rpx;
+  margin: 24rpx;
+  background-color: #F9F9F9;
+  display: flex;
+}
+.footer_share{
+  width: 350rpx;
+  display: flex;
+}
+.shop_footer .hr{
+  width: 2rpx;
+  height: 150rpx;
+  margin: auto 0rpx ;
+  background-color: #BEBEBE;
+}
+.footer_down{
+  width: 349rpx;
+  display: flex;
+}
+.share_img, .down_img{
+  width: 88rpx;
+  height: 88rpx;
+  margin: 50rpx 0rpx 50rpx 60rpx;
+}
+.footer_text{
+  width: 120rpx;
+  font-size: 24rpx;
+  color: #BEBEBE;
+  margin-top: 76rpx;
+  margin-left: 12rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  /*限制显示文本行数 */
+  -webkit-box-orient: vertical;   /*垂直排列 */
+}

@@ -1,9 +1,10 @@
 // pages/personal/personal.js
 const WxParse = require('../../wxParse/wxParse')
 const {
-  getSmsSend,
-  setUserPhone,
-  getStoreDetail
+  getSmsSend,   // 短信验证码
+  setUserPhone,  // 用户绑定/修改手机号
+  getStoreDetail,  // 店铺信息
+  getCatMoney,  //当前拥有喵币
 } = require('../../http/api')
 Page({
 
@@ -35,6 +36,30 @@ Page({
     getBindTextCode: '获取验证码',
     setTextCode: '',
     getCodeDisabled: false, //开启获取验证码按钮
+    all: '../../image/riFill-coupon-3-fill Copy 3@1x.png',
+    gouse: '../../image/fas fa-hourglass-half Copy@1x.png',
+    used: '../../image/if-tasks-alt Copy@1x.png',
+    expired: '../../image/riLine-ticket-line Copy@1x.png',
+    naviId:''
+  },
+   check: function(options){
+    wx.navigateTo({
+      url: '../check/check',
+    })
+  },
+  mycatmoney: function(options){
+    wx.navigateTo({
+      url: '../mycatmoney/mycatmoney',
+    })
+  },
+  goPacket: function(e){
+    console.log(e);
+    this.setData({
+      naviId:e.currentTarget.dataset.id
+    })
+    wx.navigateTo({
+      url: `../mypacket/mypacket?id=${this.data.naviId}`,
+    })
   },
 
   /**
@@ -47,6 +72,16 @@ Page({
       withShareTicket: true,
       menus: ['shareAppMessage', 'shareTimeline']
     })
+    this.search()
+
+  },
+  async search(){
+    let res = await getCatMoney({})
+    console.log(res);
+    this.setData({
+      catMoneyInfo:res.data.appUserCatMoney
+    })
+    console.log(this.data.catMoneyInfo);
   },
   /**
    * 生命周期函数--监听页面显示

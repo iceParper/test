@@ -1,0 +1,28 @@
+<!--pages/mypacket/mypacket.wxml-->
+<view class="mypacket_title">
+    <view bindtap="handleTap" data-id="1" class="{{currentId == '1'?'on':'off'}}">全部</view>
+    <view bindtap="handleTap" data-id="2" class="{{currentId == '2'?'on':'off'}}" >待使用</view>
+    <view bindtap="handleTap" data-id="3" class="{{currentId == '3'?'on':'off'}}">已使用</view>
+    <view bindtap="handleTap" data-id="4" class="{{currentId == '4'?'on':'off'}}">已过期</view>
+  </view>
+  <view class="bottom_one" wx:for="{{couponList}}" wx:key="index">
+    <view class="top_title">
+      <image class="title_img" src="{{titleimg}}"></image>
+      <view class="title_text">{{item.commericalName}}</view>
+    </view>
+    <view class="coupon">
+      <view class="money">
+        <view class="money_title"><text>有效期至{{item.finalUseTime}}</text></view>
+        <view class="money_main">
+          <view class="money_sum">{{item.couponTicketShow}}</view>
+          <view class="money_main_conter">
+            <view class="money_type">{{item.ticketCategoryType}}</view>
+            <view class="money_condition">{{item.couponTicketShowAssociation}}</view>
+          </view>
+          </view>
+      </view>
+    <view class="gobuy" data-cid="{{item.couponTicketId}}"  data-uid="{{item.userTicketId}}" bindtap="paysuccess">
+      <view class="gobuy_goto">立即使用</view>
+    </view>
+    </view>
+  </view>

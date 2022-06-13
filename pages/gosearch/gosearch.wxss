@@ -1,0 +1,134 @@
+page {
+  background-color:#F4F5F4;
+}
+.gosearch{
+  width: 750rpx;
+  text-align: justify;
+}
+.top{
+  width: 750rpx;
+  display: flex;
+}
+.search-go{
+  margin: 20rpx 0rpx 0rpx 20rpx;
+  width: 630rpx;
+  height: 92rpx;
+  background-color: #FFFFFF;
+  border-radius: 8rpx;
+  text-align: center;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.23);
+  display: flex;
+}
+.search-img{
+  margin:22rpx 0rpx 22rpx 24rpx ;
+  width: 48rpx;
+  height: 48rpx;
+}
+.input{
+  margin: 22rpx auto 0rpx 16rpx;
+  background-color: #FFFFFF;
+  font-size: 34rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.search-close{
+  margin: 24rpx;
+}
+.gosearch{
+  width: 68rpx;
+  height: 48rpx;
+  padding-top: 42rpx;
+  margin-left: 12rpx;
+  color: rgba(16, 16, 16, 100);
+  font-size: 34rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+}
+.history{
+  width: 100%;
+  height: 200rpx;
+  margin-top: 40rpx;
+}
+.history_title{
+  width: 100%;
+  text-align: center;
+  color: rgba(202, 202, 202, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+}
+.history_title .text{
+  width: 446rpx;
+  text-align: right;
+}
+.history_delect{
+  width: 36rpx;
+  margin-right: 40rpx;
+}
+.del{
+  width: 36rpx !important;
+  height: 36rpx !important;
+  align-content: center;
+  background-color:#F4F5F4 !important;
+}
+.del::after{
+  border: none;
+}
+.delete{
+  position: relative;
+  top: -22rpx;
+  right: 5rpx;
+}
+.fixedsearch{
+  width: 622rpx;
+  height: 500rpx;
+  margin: 40rpx 64rpx 0rpx 64rpx;
+}
+.fixedsearch_title{
+  width: 100%;
+  text-align: center;
+  color: rgba(202, 202, 202, 100);
+  font-size: 28rpx;
+  font-family: PingFangSC-regular;
+  text-align: center;
+}
+.category{
+  width: 100%;
+  height: 40rpx;
+  margin-top: 30rpx;
+  display: flex;
+}
+.category .hr {
+  width: 2rpx;
+  height: 30rpx;
+  background: #E3E3E3;
+  margin:auto;
+}
+.cate, .hair, .beautify{
+  width: 209rpx;
+  padding-left: 80rpx;
+  color: rgba(87, 107, 149, 100);
+  font-size: 28rpx;
+}
+/* 搜索出来的内容 */
+.none{
+  margin-top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.swiper_con {
+  width: 96%;
+  margin-left: 2%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.swiper_con_view {
+  width: 48%;
+  height: 530rpx;
+  background-color: white;
+  margin: 10rpx 0;
+}

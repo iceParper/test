@@ -1,0 +1,37 @@
+/* pages/footerrules/footerrules.wxss */
+page {
+  background-color:#F4F5F4;
+}
+.footer{
+  width: 100%;
+  background-color: #FFFFFF;
+  margin-top: 12rpx;
+  margin-bottom: 200rpx;
+}
+.indare, .rule, .notice{
+  width: 702rpx;
+  padding: 6rpx 24rpx;
+}
+.indare_title, .rule_title, .notice_title{
+  color: rgba(16, 16, 16, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-weight: 600;
+  font-family: PingFangSC-bold;
+}
+.indare_time, .indare_day, .rule_one, .rule_tow, .notice_one, .notice_tow{
+  color: rgba(40, 40, 40, 100);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: PingFangSC-regular;
+  margin: 12rpx 0rpx 12rpx 28rpx;
+}
+.indare_time>text, .indare_day>text{
+  font-weight: 600;
+}
+.rule_one>text, .rule_tow>text{
+  font-weight: 600;
+}
+.notice_one>text, .notice_tow>text{
+  font-weight: 600;
+}

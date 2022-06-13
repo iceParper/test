@@ -1,0 +1,48 @@
+<!--pages/used/used.wxml-->
+<view class="order">
+  <view class="expiredrecord">
+    <view class="expired_record_title">使用记录</view>
+    <view class="expired">已过期</view>
+  </view>
+  <view class="order_top">
+    <view class="top_title">
+      <image class="title_img" src="{{packetimg}}"></image>
+      <view class="money_sum">￥30满减券</view>
+    </view>
+    <view class="money_title">
+       <view class="money_condition">满￥100可用</view>
+      <view class="money_indare">有效期至2021年12月3日</view>
+    </view>
+    <view class="scancodes">
+      <view class="switch">
+        <image class="switch_img" src="{{switchimg}}"></image>
+        <view class="switch_title">条形码</view>
+      </view>
+      <image class="scancodesimg" src="{{scancodesimg}}"></image>
+      <view class="scancodes_sum">1111 11111 11111 11111</view>
+    </view>
+    <view class="goused">已使用</view>
+  </view>
+  <view class="goshopping" bindtap="shopdetail">
+   <view class="shopping_title">老王大饭店</view> 
+   <view class="chevronright">
+  <van-icon name="arrow" color="#8a8a8a" size="32rpx" /></view>
+  </view>
+  <import src="../footerrules/footerrules"></import>
+<template is="footerrules"></template>
+  <view class="payment">
+   <view class="payment_title">实 付 款</view>
+   <view class="payment_sum">￥1+50喵币</view>
+  </view>
+  <view class="ordernumber">
+    <view class="order_number">
+    <view class="ordernumber_title">订单编号</view>
+    <view class="ordernumber_sum">11111111111111111</view>
+    </view>
+    <view class="order_time">
+   <view class="ordertime_title">下单时间</view>
+   <view class="ordertime_sum">2021年12月22日 10：10：10</view>
+  </view>
+  </view>
+</view>
+

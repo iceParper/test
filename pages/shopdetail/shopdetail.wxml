@@ -1,0 +1,48 @@
+<!--pages/shopdetail/shopdetail.wxml-->
+<view class="shopdetail">
+  <view class="topimg">
+  <image class="img" src="{{shopInfo.pictureUrl}}" mode="widthFix"></image>
+ </view>
+ <view class="bottom">
+    <view class="details_title">{{shopInfo.commericalName}}
+    </view>
+    <view class="shopdetails">
+      <view class="shoptime">
+      <image class="time_img" src="{{shoptime}}"></image>
+      <text>周一至周日</text>
+      <text>{{shopInfo.openingTime}}</text>
+      <text>营业</text>
+      </view>
+      <view class="shopsite">
+        <van-icon name="location" color="#CCCCCC" size="34rpx" />
+      <text>{{shopInfo.commericalLocation}}</text>
+      </view>
+      <view class="shopphone">
+        <van-icon name="phone" color="#CCCCCC" size="34rpx" />
+      <text>{{shopInfo.relationPeoplePhone}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+   <view class="footer_title">商户优惠券</view>
+  </view>
+  <view class="left" bindtap="coupondetails">
+    <block wx:for="{{shopAboutTicket}}" wx:key="index">
+      <template is="item" data="{{...item}}" wx:if="{{index%2==1}}"></template>
+   </block>
+  </view>
+  <view class="right" bindtap="coupondetails">
+        <block wx:for="{{shopAboutTicket}}" wx:key="index">
+          <template is="item" data="{{...item}}" wx:if="{{index%2==0}}"></template>
+        </block>
+  </view>
+  <template name="item">
+  <view class="item">
+    <image class="item-img" src="{{couponTicketCover}}" mode="aspectFill"></image>
+    <view class="name">
+      <view class="name-coupon"><text>{{couponTicketName}}</text></view>  
+      <view class="name-title"><text>{{commericalName}}</text></view>
+      </view>
+  </view>
+</template>
+</view>

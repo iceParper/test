@@ -1,0 +1,23 @@
+<!--pages/checkdetails/checkdetails.wxml-->
+<view class="checkdetails">
+    <view class="checkdetails_title">
+      <image class="title_img" src="{{packetimg}}"></image>
+      <view class="money_sum">￥30满减券</view>
+      <view class="money_condition">满100可用</view>
+    </view>
+    <view class="check_time">
+      <view class="time_title">获得时间</view>
+      <view class="time_sum">2021年12月3日  22:22:22</view>
+    </view>
+    <view class="check_phone">
+      <view class="phone_title">手机号码</view>
+      <view class="phone_sum">188 8888 6666</view>
+    </view>
+    <view class="check_packet">
+      <view class="packet_title">优惠券码</view>
+      <view class="packet_sum">1111 22222 33333 44444</view>
+    </view>
+    <view class="used_go">已过期</view>
+  </view>
+  <import src="../footerrules/footerrules"></import>
+<template is="footerrules"></template>
